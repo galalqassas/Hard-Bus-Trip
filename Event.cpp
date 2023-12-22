@@ -31,3 +31,7 @@ int Event::getStart() const {
 void Event::setStart(int start) {
     Event::start = start;
 }
+
+Event::Event() {
+
+}

@@ -15,7 +15,7 @@ PriorityQueue<T>::~PriorityQueue() {
 }
 
 template <typename T>
-void PriorityQueue<T>::enqueue(T item, int priority) {
+void PriorityQueue<T>::enqueuePQ(T item, int priority) {
     Node* n = new Node(item, priority);
     if (isEmpty() || n->priority > head->priority) {
         n->next = head;
@@ -32,7 +32,7 @@ void PriorityQueue<T>::enqueue(T item, int priority) {
 }
 
 template <typename T>
-void PriorityQueue<T>::dequeue() {
+void PriorityQueue<T>::dequeuePQ() {
     if (isEmpty()) return;
     Node* temp = head;
     head = head->next;

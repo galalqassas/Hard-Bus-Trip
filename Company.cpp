@@ -39,7 +39,7 @@ void Company::read_file(const char *filename, Parameters &eventParameters) {
             file >> atime;
             int hour = stoi(atime.substr(0, 2));
             int minute = stoi(atime.substr(3, 5));
-            Time t(hour, minute, 0);
+            Time t(hour, minute);
             ae.setTime(t);
             //
             file >> id;
@@ -62,7 +62,7 @@ void Company::read_file(const char *filename, Parameters &eventParameters) {
             file >> ltime;
             int hour = stoi(ltime.substr(0, 2));
             int minute = stoi(ltime.substr(3, 5));
-            le.setTime(Time(hour, minute, 0));
+            le.setTime(Time(hour, minute));
             int id, start, end;
             file >> id;
             le.setId(id);

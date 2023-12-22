@@ -4,7 +4,7 @@
 
 #include "Time.h"
 
-Time::Time() : hour(hour), min(min), sec(sec) {}
+Time::Time() : hour(hour), min(min){}
 
 
 short Time::getHour() const {
@@ -23,18 +23,9 @@ void Time::setMin(short min) {
     Time::min = min;
 }
 
-short Time::getSec() const {
-    return sec;
-}
-
-void Time::setSec(short sec) {
-    Time::sec = sec;
-}
-
-void Time::setTime(short h, short m, short s) {
+void Time::setTime(short h, short m) {
     this->hour = h;
     this->min = m;
-    this->sec = s;
 }
 
 Time::~Time() {
@@ -42,7 +33,7 @@ Time::~Time() {
 }
 
 std::ostream& operator<<(std::ostream& os, const Time& time) {
-    os << "hour: " << time.hour << " min: " << time.min << " sec: " << time.sec;
+    os << "hour: " << time.hour << " min: " << time.min;
     return os;
 }
 
@@ -51,63 +42,42 @@ bool Time::operator<(const Time& other) const {
         return true;
     if (other.hour < hour)
         return false;
-    if (min < other.min)
-        return true;
-    if (other.min < min)
-        return false;
-    return sec < other.sec;
+    return min < other.getMin();
 }
 
-bool Time::operator>(const Time& other) const {
-    return other < *this;
-}
 
-bool Time::operator<=(const Time& other) const {
-    return !(other < *this);
-}
-
-bool Time::operator>=(const Time& other) const {
-    return !(*this < other);
-}
-
-int Time::toSeconds() const {
-    return hour * 3600 + min * 60 + sec;
-}
-
-Time Time::fromSeconds(int seconds) {
-    int h = seconds / 3600;
-    int m = (seconds % 3600) / 60;
-    int s = seconds % 60;
-    return Time();
-}
-
-int Time::operator-(const Time& other) const {
-    int secondsThis = toSeconds();
-    int secondsOther = other.toSeconds();
-    return secondsThis - secondsOther;
+#include "iostream"
+using namespace std;
+Time Time::operator-(const Time& other) const {
+    int new_hour = hour - other.hour;
+    int new_min = min - other.min;
+    if (new_min < 0) {
+        new_hour--;
+        new_min += 60; // previous hour
+    }
+    if (new_hour < 0) {
+        new_hour = (new_hour + 24) % 24; // previous day
+    }
+    return Time(new_hour, new_min);
 }
 
 Time Time::operator+(const Time &t) {
     Time result;
-    result.sec = sec + t.sec;
-    if (result.sec >= 60) {
-        result.sec -= 60;
-        result.min += 1;
-    }
-    result.min += min + t.min;
+    result.min = min + t.min;
     if (result.min >= 60) {
         result.min -= 60;
         result.hour += 1;
     }
-    result.hour += hour + t.hour;
+    result.hour = hour + t.hour;
     if (result.hour >= 24) {
         result.hour -= 24;
     }
     return result;
 }
 
-Time::Time (short h, short m, short s) {
+Time::Time(short h, short m) {
     hour = h;
     min = m;
-    sec = s;
 }
+
+

@@ -115,6 +115,18 @@ build CMakeFiles/easy_bus_trip_v2.dir/Time.cpp.obj: CXX_COMPILER__easy_bus_trip_
   OBJECT_DIR = CMakeFiles\easy_bus_trip_v2.dir
   OBJECT_FILE_DIR = CMakeFiles\easy_bus_trip_v2.dir
 
+build CMakeFiles/easy_bus_trip_v2.dir/Bus.cpp.obj: CXX_COMPILER__easy_bus_trip_v2_Debug C$:/Users/PC/CLionProjects/easy$ bus$ trip$ v2/Bus.cpp || cmake_object_order_depends_target_easy_bus_trip_v2
+  DEP_FILE = CMakeFiles\easy_bus_trip_v2.dir\Bus.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\easy_bus_trip_v2.dir
+  OBJECT_FILE_DIR = CMakeFiles\easy_bus_trip_v2.dir
+
+build CMakeFiles/easy_bus_trip_v2.dir/ArrivalEvent.cpp.obj: CXX_COMPILER__easy_bus_trip_v2_Debug C$:/Users/PC/CLionProjects/easy$ bus$ trip$ v2/ArrivalEvent.cpp || cmake_object_order_depends_target_easy_bus_trip_v2
+  DEP_FILE = CMakeFiles\easy_bus_trip_v2.dir\ArrivalEvent.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\easy_bus_trip_v2.dir
+  OBJECT_FILE_DIR = CMakeFiles\easy_bus_trip_v2.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target easy_bus_trip_v2
@@ -123,7 +135,7 @@ build CMakeFiles/easy_bus_trip_v2.dir/Time.cpp.obj: CXX_COMPILER__easy_bus_trip_
 #############################################
 # Link the executable easy_bus_trip_v2.exe
 
-build easy_bus_trip_v2.exe: CXX_EXECUTABLE_LINKER__easy_bus_trip_v2_Debug CMakeFiles/easy_bus_trip_v2.dir/main.cpp.obj CMakeFiles/easy_bus_trip_v2.dir/Company.cpp.obj CMakeFiles/easy_bus_trip_v2.dir/Event.cpp.obj CMakeFiles/easy_bus_trip_v2.dir/LeaveEvent.cpp.obj CMakeFiles/easy_bus_trip_v2.dir/LinkedList.cpp.obj CMakeFiles/easy_bus_trip_v2.dir/NpPassengerQueue.cpp.obj CMakeFiles/easy_bus_trip_v2.dir/Passenger.cpp.obj CMakeFiles/easy_bus_trip_v2.dir/PriorityQueue.cpp.obj CMakeFiles/easy_bus_trip_v2.dir/Queue.cpp.obj CMakeFiles/easy_bus_trip_v2.dir/Station.cpp.obj CMakeFiles/easy_bus_trip_v2.dir/Time.cpp.obj
+build easy_bus_trip_v2.exe: CXX_EXECUTABLE_LINKER__easy_bus_trip_v2_Debug CMakeFiles/easy_bus_trip_v2.dir/main.cpp.obj CMakeFiles/easy_bus_trip_v2.dir/Company.cpp.obj CMakeFiles/easy_bus_trip_v2.dir/Event.cpp.obj CMakeFiles/easy_bus_trip_v2.dir/LeaveEvent.cpp.obj CMakeFiles/easy_bus_trip_v2.dir/LinkedList.cpp.obj CMakeFiles/easy_bus_trip_v2.dir/NpPassengerQueue.cpp.obj CMakeFiles/easy_bus_trip_v2.dir/Passenger.cpp.obj CMakeFiles/easy_bus_trip_v2.dir/PriorityQueue.cpp.obj CMakeFiles/easy_bus_trip_v2.dir/Queue.cpp.obj CMakeFiles/easy_bus_trip_v2.dir/Station.cpp.obj CMakeFiles/easy_bus_trip_v2.dir/Time.cpp.obj CMakeFiles/easy_bus_trip_v2.dir/Bus.cpp.obj CMakeFiles/easy_bus_trip_v2.dir/ArrivalEvent.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\easy_bus_trip_v2.dir

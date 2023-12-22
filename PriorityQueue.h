@@ -23,8 +23,8 @@ private:
 public:
     PriorityQueue() { head = nullptr; }
     ~PriorityQueue();
-    void enqueue(T item, int priority);
-    void dequeue();
+    void enqueuePQ(T item, int priority);
+    void dequeuePQ();
     bool isEmpty();
     T peek();
     void display();

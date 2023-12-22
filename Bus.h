@@ -49,7 +49,10 @@ public:
     void setPassengerNumber(int passengerNumber);
     const int& getCurrentStation() const;
     void setCurrentStation(const int &currentStation);
-    void add_passenger(Passenger* passenger, string passenger_type);
+    void add_passenger(Passenger* passenger);
     void remove_passenger(Passenger* passenger);
+
+    bool isCurrentStation(const Passenger *passenger) const;
+    int getDifferenceStation(const Passenger *passenger) const;
 };
 #endif //DATA_STRUCTURE_PROJECT_BUS_H

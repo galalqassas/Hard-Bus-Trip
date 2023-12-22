@@ -55,7 +55,9 @@ public:
     void removePassengerNp(Passenger* passenger);
     void removePassengerSp(Passenger* passenger);
     void addBusForward(Bus* bus);
+    void addBusBackward(Bus* bus);
 
+    void promotePassenger(Passenger* passenger);
 };
 
 

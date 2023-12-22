@@ -4,7 +4,7 @@
 
 #include "Station.h"
 #include "Passenger.h"
-
+# include "PriorityQueue.h"
 
 short Station::getStationNumber() const {
     return stationNumber;
@@ -97,9 +97,9 @@ int Station::getSPPriority(string sp_type) {
 void Station::addPassengerSp(Passenger* passenger, string type) {
     int priority = getSPPriority(type);
     if (isPassengerForward(passenger))
-        waitingSPForward.enqueue(passenger, priority);
+        waitingSPForward.enqueuePQ(passenger, priority);
     else
-        waitingSPBackward.enqueue(passenger, priority);
+        waitingSPBackward.enqueuePQ(passenger, priority);
 }
 
 void Station::addPassengerNp(Passenger* passenger) {
@@ -129,15 +129,26 @@ void Station::removePassengerNp(Passenger* passenger) {
 
 void Station::removePassengerSp(Passenger* passenger) {
     if (isPassengerForward(passenger))
-        waitingSPForward.dequeue();
+        waitingSPForward.dequeuePQ();
     else
-        waitingSPBackward.dequeue();
+        waitingSPBackward.dequeuePQ();
 }
 
 void Station::addBusForward(Bus *bus) {
     if (bus->isBusForward()){
         availableBusesForward.enqueue(bus);
     }
+}
+
+void Station::addBusBackward(Bus *bus) {
+    if (!bus->isBusForward()){
+        availableBusesBackward.enqueue(bus);
+    }
+}
+void Station::promotePassenger(Passenger* passenger) {
+    passenger->setPassengerType("SP");
+    removePassengerNp(passenger);
+    addPassengerSp(passenger, "Aged");
 }
 
 
@@ -161,7 +172,7 @@ void Station::addPassenger(Passenger passenger, string sp_type) {
             if (passenger.getEndStation() > passenger.getStartStation())
                 waitingSPForward.enqueue(passenger, priority);
             else
-                waitingSPBackward.enqueue(passenger, priority);
+                waitingSPBackward.enqueuePQ(passenger, priority);
         } else return;
     }
 }
@@ -204,7 +215,7 @@ void Station::removePassenger(Passenger passenger, string sp_type) {
                 if (passenger.getEndStation() > passenger.getStartStation())
                     waitingSPForward.dequeue();
                 else
-                    waitingSPBackward.dequeue();
+                    waitingSPBackward.dequeuePQ();
             } else return;
         } else return;
     }

@@ -13,6 +13,7 @@
 //#include "Station.h"
 using namespace std;
 
+/*
 struct Event_To_Read {
     char A_L;
     string type;
@@ -22,6 +23,7 @@ struct Event_To_Read {
     int endStation;
     string condition;
 };
+*/
 
 struct Parameters {
     int num_stations;

@@ -53,13 +53,19 @@ void Bus::getPrioritysp(string passenger_type) {
     }
 }
 
-void Bus::add_passenger(Passenger* passenger, string passenger_type) {
-    if (passenger->getStartStation() == currentStation){
-        int priority = abs(passenger->getEndStation()- passenger->getStartStation());
-        passengers.enqueue(passenger, priority);
+void Bus::add_passenger(Passenger* passenger) {
+    if (isCurrentStation(passenger)){
+        int priority = getDifferenceStation(passenger);
+        passengers.enqueuePQ(passenger, priority);
     }
-    Num_of_trips++;
+    Passenger_number++;
 }
+
+int Bus::getDifferenceStation(const Passenger* passenger) const {
+    return abs(passenger->getEndStation() - passenger->getStartStation());
+}
+
+bool Bus::isCurrentStation(const Passenger *passenger) const { return passenger->getStartStation() == currentStation; }
 
 int Bus::getSPPriority(string sp_type) {
     if (sp_type == "Aged"){
@@ -75,7 +81,7 @@ int Bus::getSPPriority(string sp_type) {
 
 void Bus::remove_passenger(Passenger* passenger) {
     int priority = abs(passenger->getEndStation()- passenger->getStartStation());
-    passengers.dequeue();
+    passengers.dequeuePQ();
     Num_of_trips--;
 }
 
