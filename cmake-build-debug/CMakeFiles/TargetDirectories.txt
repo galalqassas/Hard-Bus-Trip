@@ -1,0 +1,3 @@
+C:/Users/PC/CLionProjects/easy bus trip v2/cmake-build-debug/CMakeFiles/easy_bus_trip_v2.dir
+C:/Users/PC/CLionProjects/easy bus trip v2/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/PC/CLionProjects/easy bus trip v2/cmake-build-debug/CMakeFiles/rebuild_cache.dir
