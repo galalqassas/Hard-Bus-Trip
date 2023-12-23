@@ -3,7 +3,12 @@
 //
 
 #include "PriorityQueue.h"
-
+#include "Station.h"
+#include "Queue.cpp"
+#include "Passenger.h"
+#include "Bus.h"
+template class PriorityQueue<Passenger*>;  // Passenger* is just an example, adjust as needed
+template class PriorityQueue<Bus*>;
 template <typename T>
 PriorityQueue<T>::~PriorityQueue() {
     Node* temp = head;
@@ -46,7 +51,10 @@ bool PriorityQueue<T>::isEmpty() {
 
 template <typename T>
 T PriorityQueue<T>::peek() {
-    if (isEmpty()) return -1;
+    if (isEmpty()) {
+        // Return a default-constructed value for type T when the queue is empty
+        return T();
+    }
     return head->value;
 }
 

@@ -3,6 +3,11 @@
 //
 
 #include "Queue.h"
+#include "Event.h"
+#include "PriorityQueue.h"
+template class Queue<Event*>;
+template class Queue<Passenger*>;  // Passenger* is just an example, adjust as needed
+template class Queue<Bus*>;
 template <typename T>
 Queue<T>::~Queue() {
     Node* temp = front;
@@ -45,8 +50,10 @@ bool Queue<T>::isEmpty() {
 
 template <typename T>
 T Queue<T>::peek() {
-
-    if (isEmpty()) return -1;
+    if (isEmpty()) {
+        // Return a special value for an empty queue (nullptr for pointers)
+        return nullptr;  // Assuming T is a pointer type
+    }
 
     return front->value;
 }

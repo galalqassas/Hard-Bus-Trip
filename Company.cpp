@@ -7,7 +7,8 @@
 #include "Company.h"
 #include "ArrivalEvent.h"
 #include "LeaveEvent.h"
-
+#include "Queue.h"
+template class Queue<Event*>;
 void Company::read_file(const char *filename, Parameters &eventParameters) {
     ifstream file(filename);
     if (!file.is_open()) {
@@ -29,46 +30,46 @@ void Company::read_file(const char *filename, Parameters &eventParameters) {
         char eventType;
         file >> eventType;
         if (eventType == 'A') {
-            ArrivalEvent ae;
+            ArrivalEvent* ae=new ArrivalEvent();
             string type, sptype;
             string atime;
             int id,start,end;
             file >> type;
-            ae.setPtype(type);
+            ae->setPtype(type);
             //
             file >> atime;
-            int hour = stoi(atime.substr(0, 2));
-            int minute = stoi(atime.substr(3, 5));
+            short hour = stoi(atime.substr(0, 2));
+            short minute = stoi(atime.substr(3, 5));
             Time t(hour, minute);
-            ae.setTime(t);
+            ae->setTime(t);
             //
             file >> id;
-            ae.setId(id);
+            ae->setId(id);
             //
             file >> start;
-            ae.setStart(start);
+            ae->setStart(start);
             //
             file >> end;
-            ae.setAnEnd(end);
+            ae->setAnEnd(end);
 
             file >> sptype;
             if (sptype != "\n")
-                ae.setSPtype(sptype);
-
-           eventQueue.enqueue(&ae);
+                ae->setSPtype(sptype);
+           eventQueue.enqueue(ae);
         } else if (eventType == 'L') {
-            LeaveEvent le;
+            LeaveEvent* le=new LeaveEvent();
             string ltime;
             file >> ltime;
             int hour = stoi(ltime.substr(0, 2));
             int minute = stoi(ltime.substr(3, 5));
-            le.setTime(Time(hour, minute));
+            le->setTime(Time(hour, minute));
             int id, start, end;
             file >> id;
-            le.setId(id);
-            eventQueue.enqueue(&le);
+            le->setId(id);
+            eventQueue.enqueue(le);
         }
     }
+
 /*
     if (p.getPassengerType() == "NP")
         stations[events[i].strtStation].addPassengerNp(&p);
@@ -77,5 +78,6 @@ void Company::read_file(const char *filename, Parameters &eventParameters) {
     else if (p.getPassengerType() == "WP")
         stations[events[i].strtStation].addPassengerWp(&p);
     }
-    file.close(); */
+    file.close();*/
+
 }

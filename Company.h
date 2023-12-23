@@ -42,12 +42,12 @@ struct Parameters {
 
 class Company {
 private:
-    Queue<Bus> station0;
+    Queue<Bus*> station0;
     Station *stations = new Station[50];
     Queue<Event*> eventQueue;
-    Queue<Passenger> finishedPassengerList;
-    Queue<Bus> mBusMaintenance;
-    Queue<Bus> wBusMaintenance;
+    Queue<Passenger*> finishedPassengerList;
+    Queue<Bus*> mBusMaintenance;
+    Queue<Bus*> wBusMaintenance;
 public:
     void read_file(const char* filename, Parameters& eventParameters);
 };

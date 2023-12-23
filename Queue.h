@@ -9,20 +9,22 @@
 #include <iostream>
 using namespace std;
 
-template <typename T> // declare a generic type T
+template <typename T>
 class Queue {
 private:
     class Node {
     public:
         T value;
         Node* next;
-        Node(T value): value(value), next(nullptr) {}
+        Node(T value) : value(value), next(nullptr) {}
     };
     Node* front;
     Node* rear;
+
 public:
-    Queue() { front = rear = nullptr; }
+    Queue() : front(nullptr), rear(nullptr) {}
     ~Queue();
+
     void enqueue(T item);
     void dequeue();
     bool isEmpty();
