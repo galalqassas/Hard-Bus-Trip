@@ -6,8 +6,6 @@
 #define PROJECT_UNIVERSITY_ARRIVALEVENT_H
 
 #include "Event.h"
-
-
 class ArrivalEvent : public Event {
 private:
     int end; // end station (only for arrival events)
@@ -22,6 +20,7 @@ public:
     const string &getSPtype() const;
     void setSPtype(const string &sPtype);
     Passenger Execute() override;
+    friend void print(ostream& out, const ArrivalEvent& ae);
 };
 
 

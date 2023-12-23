@@ -31,14 +31,15 @@ void Company::read_file(const char *filename, Parameters &eventParameters) {
 
         if (eventType == 'A') {
             ArrivalEvent* ae = new ArrivalEvent();
-            string type, sptype;
+            string type;
+
             string atime;
             int id, start, end;
             file >> type;
             ae->setPtype(type);
             //
             file >> atime;
-            size_t colonPos = atime.find(':');
+            short colonPos = atime.find(':');
 
             if (colonPos != string::npos) {
                 try {
@@ -68,18 +69,15 @@ void Company::read_file(const char *filename, Parameters &eventParameters) {
             //
             file >> end;
             ae->setAnEnd(end);
-
-            file >> sptype;
-            if (sptype=="POD"|| sptype=="aged"||sptype=="Pregnant")
+            string sptype;
+            getline(file, sptype);
+            if (sptype == "\n")
+                sptype = "";
+            else if (sptype == "POD" || sptype == "aged" || sptype == "Pregnant")
                 ae->setSPtype(sptype);
-
             else
-                sptype="";
-
+                sptype = "";
             cout << eventType << " " << type << " " << atime << " " << id << " " << start << " " << end<<" "<<sptype<<endl;
-
-
-
             eventQueue.enqueue(ae);
         } else if (eventType == 'L') {
             LeaveEvent* le = new LeaveEvent();
@@ -90,13 +88,12 @@ void Company::read_file(const char *filename, Parameters &eventParameters) {
             le->setTime(Time(hour, minute));
             int id;
             file >> id;
-
-            // Print the desired output format
+            le->setId(id);
             cout << eventType << " " << ltime << " " << id << endl;
-
             eventQueue.enqueue(le);
         }
     }
+}
 /*
     if (p.getPassengerType() == "NP")
         stations[events[i].strtStation].addPassengerNp(&p);
@@ -106,5 +103,3 @@ void Company::read_file(const char *filename, Parameters &eventParameters) {
         stations[events[i].strtStation].addPassengerWp(&p);
     }
     file.close();*/
-
-}

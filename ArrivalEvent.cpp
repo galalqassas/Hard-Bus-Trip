@@ -4,6 +4,10 @@
 
 #include "ArrivalEvent.h"
 #include <iostream>
+#include <fstream>
+#include "Company.h"
+#include "LeaveEvent.h"
+#include "Queue.h"
 using namespace std;
 
 // constructor
@@ -43,5 +47,16 @@ const string &ArrivalEvent::getSPtype() const {
 void ArrivalEvent::setSPtype(const string &sPtype) {
     SPtype = sPtype;
 }
+void print(ostream& out, const ArrivalEvent& ae) {
+    // output the data of the ArrivalEvent object in the format A ptype time id start end SPtype
+    out << "A " << ae.getPtype() << " " << ae.getTime() << " " << ae.getId() << " " << ae.getStart() << " " << ae.getAnEnd();
+    // if the passenger type is SP, output the extra word
+    if (ae.getPtype() == "SP") {
+        out << " " << ae.getSPtype();
+    }
+    // end the line
+    out << endl;
+}
+
 
 ArrivalEvent::ArrivalEvent() {}
