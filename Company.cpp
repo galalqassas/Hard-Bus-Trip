@@ -24,15 +24,16 @@ void Company::read_file(const char *filename, Parameters &eventParameters) {
 
     int num_events;
     file >> num_events;
-//    Event_To_Read events[num_events];
+
     for (int i = 0; i < num_events; ++i) {
         char eventType;
         file >> eventType;
+
         if (eventType == 'A') {
-            ArrivalEvent* ae=new ArrivalEvent();
+            ArrivalEvent* ae = new ArrivalEvent();
             string type, sptype;
             string atime;
-            int id,start,end;
+            int id, start, end;
             file >> type;
             ae->setPtype(type);
             //
@@ -69,26 +70,33 @@ void Company::read_file(const char *filename, Parameters &eventParameters) {
             ae->setAnEnd(end);
 
             file >> sptype;
-            if (sptype != "\n")
+            if (sptype=="POD"|| sptype=="aged"||sptype=="Pregnant")
                 ae->setSPtype(sptype);
-            cout<<"The type is "<<type<<"\n The arrival time is "<<atime<<"\n The id is "<<id<<"\n The start is "<<start<<"\n The end is "<<end<<"\n the sptype is "<<sptype<<endl;
-           eventQueue.enqueue(ae);
 
+            else
+                sptype="";
+
+            cout << eventType << " " << type << " " << atime << " " << id << " " << start << " " << end<<" "<<sptype<<endl;
+
+
+
+            eventQueue.enqueue(ae);
         } else if (eventType == 'L') {
-            LeaveEvent* le=new LeaveEvent();
+            LeaveEvent* le = new LeaveEvent();
             string ltime;
             file >> ltime;
             int hour = stoi(ltime.substr(0, 2));
             int minute = stoi(ltime.substr(3, 5));
             le->setTime(Time(hour, minute));
-            int id, start, end;
+            int id;
             file >> id;
-            le->setId(id);
-            cout<<"\n The leave time is "<<ltime<<"\n The id is "<<id<<"\n The start is "<<start<<"\n The end is "<<end<<endl;
+
+            // Print the desired output format
+            cout << eventType << " " << ltime << " " << id << endl;
+
             eventQueue.enqueue(le);
         }
     }
-
 /*
     if (p.getPassengerType() == "NP")
         stations[events[i].strtStation].addPassengerNp(&p);
