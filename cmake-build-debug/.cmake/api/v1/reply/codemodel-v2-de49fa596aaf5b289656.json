@@ -49,12 +49,12 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "C:/Users/PC/CLionProjects/easy bus trip v2/cmake-build-debug",
-		"source" : "C:/Users/PC/CLionProjects/easy bus trip v2"
+		"build" : "C:/Users/Galal/CLionProjects/Hard-Bus-Trip/cmake-build-debug",
+		"source" : "C:/Users/Galal/CLionProjects/Hard-Bus-Trip"
 	},
 	"version" : 
 	{
 		"major" : 2,
-		"minor" : 4
+		"minor" : 6
 	}
 }

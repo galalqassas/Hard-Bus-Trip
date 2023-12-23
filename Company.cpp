@@ -15,7 +15,6 @@ void Company::read_file(const char *filename, Parameters &eventParameters) {
         cerr << "Error opening file: " << filename << endl;
         return;
     }
-
     file >> eventParameters.num_stations >> eventParameters.time_between_stations;
     file >> eventParameters.num_WBuses >> eventParameters.num_MBuses;
     file >> eventParameters.capacity_WBus >> eventParameters.capacity_MBus;
@@ -38,10 +37,27 @@ void Company::read_file(const char *filename, Parameters &eventParameters) {
             ae->setPtype(type);
             //
             file >> atime;
-            short hour = stoi(atime.substr(0, 2));
-            short minute = stoi(atime.substr(3, 5));
-            Time t(hour, minute);
-            ae->setTime(t);
+            size_t colonPos = atime.find(':');
+
+            if (colonPos != string::npos) {
+                try {
+                    short hour = stoi(atime.substr(0, colonPos));
+                    short minute = stoi(atime.substr(colonPos + 1));
+
+                    // Check if the minute part has only one digit, and add a leading zero if needed
+                    if (atime.substr(colonPos + 1).length() == 1) {
+                        minute *= 10;  // Add a zero to the minute part
+                    }
+
+                    // Use hour and minute as needed
+                    Time t(hour, minute);
+                    ae->setTime(t);
+                } catch (const invalid_argument& e) {
+                    cerr << "Error parsing time: " << atime << endl;
+                }
+            } else {
+                cerr << "Invalid time format: " << atime << endl;
+            }
             //
             file >> id;
             ae->setId(id);
@@ -55,7 +71,9 @@ void Company::read_file(const char *filename, Parameters &eventParameters) {
             file >> sptype;
             if (sptype != "\n")
                 ae->setSPtype(sptype);
+            cout<<"The type is "<<type<<"\n The arrival time is "<<atime<<"\n The id is "<<id<<"\n The start is "<<start<<"\n The end is "<<end<<"\n the sptype is "<<sptype<<endl;
            eventQueue.enqueue(ae);
+
         } else if (eventType == 'L') {
             LeaveEvent* le=new LeaveEvent();
             string ltime;
@@ -66,6 +84,7 @@ void Company::read_file(const char *filename, Parameters &eventParameters) {
             int id, start, end;
             file >> id;
             le->setId(id);
+            cout<<"\n The leave time is "<<ltime<<"\n The id is "<<id<<"\n The start is "<<start<<"\n The end is "<<end<<endl;
             eventQueue.enqueue(le);
         }
     }

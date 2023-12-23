@@ -6,7 +6,7 @@
 #include "Event.h"
 #include "PriorityQueue.h"
 template class Queue<Event*>;
-template class Queue<Passenger*>;  // Passenger* is just an example, adjust as needed
+template class Queue<Passenger*>;
 template class Queue<Bus*>;
 template <typename T>
 Queue<T>::~Queue() {

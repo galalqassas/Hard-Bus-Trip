@@ -7,7 +7,7 @@
 #include "Queue.cpp"
 #include "Passenger.h"
 #include "Bus.h"
-template class PriorityQueue<Passenger*>;  // Passenger* is just an example, adjust as needed
+template class PriorityQueue<Passenger*>;
 template class PriorityQueue<Bus*>;
 template <typename T>
 PriorityQueue<T>::~PriorityQueue() {
