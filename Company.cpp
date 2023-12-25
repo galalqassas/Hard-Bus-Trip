@@ -22,6 +22,18 @@ void Company::read_file(const char *filename, Parameters &eventParameters) {
          >> eventParameters.checkup_duration_MBus;
     file >> eventParameters.max_waiting_time >> eventParameters.get_on_off_time;
 
+    cout << "Parameters:\n"
+         << "  Number of Stations: " << eventParameters.num_stations << "\n"
+         << "  Time Between Stations: " << eventParameters.time_between_stations << "\n"
+         << "  Number of WBuses: " << eventParameters.num_WBuses << "\n"
+         << "  Number of MBuses: " << eventParameters.num_MBuses << "\n"
+         << "  Capacity of WBus: " << eventParameters.capacity_WBus << "\n"
+         << "  Capacity of MBus: " << eventParameters.capacity_MBus << "\n"
+         << "  Trips Before Checkup: " << eventParameters.trips_before_checkup << "\n"
+         << "  Checkup Duration WBus: " << eventParameters.checkup_duration_WBus << "\n"
+         << "  Checkup Duration MBus: " << eventParameters.checkup_duration_MBus << "\n"
+         << "  Max Waiting Time: " << eventParameters.max_waiting_time << "\n"
+         << "  Get On/Off Time: " << eventParameters.get_on_off_time << "\n";
     int num_events;
     file >> num_events;
 
@@ -32,35 +44,16 @@ void Company::read_file(const char *filename, Parameters &eventParameters) {
         if (eventType == 'A') {
             ArrivalEvent* ae = new ArrivalEvent();
             string type;
-
             string atime;
             int id, start, end;
             file >> type;
             ae->setPtype(type);
             //
             file >> atime;
-            short colonPos = atime.find(':');
-
-            if (colonPos != string::npos) {
-                try {
-                    short hour = stoi(atime.substr(0, colonPos));
-                    short minute = stoi(atime.substr(colonPos + 1));
-
-                    // Check if the minute part has only one digit, and add a leading zero if needed
-                    if (atime.substr(colonPos + 1).length() == 1) {
-                        minute *= 10;  // Add a zero to the minute part
-                    }
-
-                    // Use hour and minute as needed
-                    Time t(hour, minute);
-                    ae->setTime(t);
-                } catch (const invalid_argument& e) {
-                    cerr << "Error parsing time: " << atime << endl;
-                }
-            } else {
-                cerr << "Invalid time format: " << atime << endl;
-            }
-            //
+            short hour = stoi(atime.substr(0, 2));
+            short minute = stoi(atime.substr(3 ,5));
+            Time t(hour, minute);
+            ae->setTime(t);
             file >> id;
             ae->setId(id);
             //
@@ -71,20 +64,18 @@ void Company::read_file(const char *filename, Parameters &eventParameters) {
             ae->setAnEnd(end);
             string sptype;
             getline(file, sptype);
-            if (sptype == "\n")
-                sptype = "";
-            else if (sptype == "POD" || sptype == "aged" || sptype == "Pregnant")
-                ae->setSPtype(sptype);
-            else
-                sptype = "";
+            if (!sptype.empty()) {
+                if (sptype == "POD" || sptype == "aged" || sptype == "Pregnant")
+                    ae->setSPtype(sptype);
+            }
             cout << eventType << " " << type << " " << atime << " " << id << " " << start << " " << end<<" "<<sptype<<endl;
             eventQueue.enqueue(ae);
         } else if (eventType == 'L') {
             LeaveEvent* le = new LeaveEvent();
             string ltime;
             file >> ltime;
-            int hour = stoi(ltime.substr(0, 2));
-            int minute = stoi(ltime.substr(3, 5));
+            short hour = stoi(ltime.substr(0, 2));
+            short minute = stoi(ltime.substr(3, 5));
             le->setTime(Time(hour, minute));
             int id;
             file >> id;

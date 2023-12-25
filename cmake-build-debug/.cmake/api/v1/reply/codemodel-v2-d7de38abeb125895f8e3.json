@@ -49,12 +49,12 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "C:/Users/PC/CLionProjects/Hard-Bus-Trip/cmake-build-debug",
-		"source" : "C:/Users/PC/CLionProjects/Hard-Bus-Trip"
+		"build" : "C:/Users/Galal/CLionProjects/Hard-Bus-Trip1/cmake-build-debug",
+		"source" : "C:/Users/Galal/CLionProjects/Hard-Bus-Trip1"
 	},
 	"version" : 
 	{
 		"major" : 2,
-		"minor" : 4
+		"minor" : 6
 	}
 }
