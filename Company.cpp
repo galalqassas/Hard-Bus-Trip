@@ -22,18 +22,18 @@ void Company::read_file(const char *filename, Parameters &eventParameters) {
          >> eventParameters.checkup_duration_MBus;
     file >> eventParameters.max_waiting_time >> eventParameters.get_on_off_time;
 
-    cout << "Parameters:\n"
-         << "  Number of Stations: " << eventParameters.num_stations << "\n"
-         << "  Time Between Stations: " << eventParameters.time_between_stations << "\n"
-         << "  Number of WBuses: " << eventParameters.num_WBuses << "\n"
-         << "  Number of MBuses: " << eventParameters.num_MBuses << "\n"
-         << "  Capacity of WBus: " << eventParameters.capacity_WBus << "\n"
-         << "  Capacity of MBus: " << eventParameters.capacity_MBus << "\n"
-         << "  Trips Before Checkup: " << eventParameters.trips_before_checkup << "\n"
-         << "  Checkup Duration WBus: " << eventParameters.checkup_duration_WBus << "\n"
-         << "  Checkup Duration MBus: " << eventParameters.checkup_duration_MBus << "\n"
-         << "  Max Waiting Time: " << eventParameters.max_waiting_time << "\n"
-         << "  Get On/Off Time: " << eventParameters.get_on_off_time << "\n";
+//    cout << "Parameters:\n"
+//         << "  Number of Stations: " << eventParameters.num_stations << "\n"
+//         << "  Time Between Stations: " << eventParameters.time_between_stations << "\n"
+//         << "  Number of WBuses: " << eventParameters.num_WBuses << "\n"
+//         << "  Number of MBuses: " << eventParameters.num_MBuses << "\n"
+//         << "  Capacity of WBus: " << eventParameters.capacity_WBus << "\n"
+//         << "  Capacity of MBus: " << eventParameters.capacity_MBus << "\n"
+//         << "  Trips Before Checkup: " << eventParameters.trips_before_checkup << "\n"
+//         << "  Checkup Duration WBus: " << eventParameters.checkup_duration_WBus << "\n"
+//         << "  Checkup Duration MBus: " << eventParameters.checkup_duration_MBus << "\n"
+//         << "  Max Waiting Time: " << eventParameters.max_waiting_time << "\n"
+//         << "  Get On/Off Time: " << eventParameters.get_on_off_time << "\n";
     int num_events;
     file >> num_events;
 
@@ -65,7 +65,6 @@ void Company::read_file(const char *filename, Parameters &eventParameters) {
             string sptype;
             getline(file, sptype);
             if (!sptype.empty()) {
-                if (sptype == "POD" || sptype == "aged" || sptype == "Pregnant")
                     ae->setSPtype(sptype);
             }
             cout << eventType << " " << type << " " << atime << " " << id << " " << start << " " << end<<" "<<sptype<<endl;
@@ -80,7 +79,10 @@ void Company::read_file(const char *filename, Parameters &eventParameters) {
             int id;
             file >> id;
             le->setId(id);
-            cout << eventType << " " << ltime << " " << id << endl;
+            short start;
+            file >> start;
+            le->setStart(start);
+            cout << eventType << " " << ltime << " " << id << " " <<  start << endl;
             eventQueue.enqueue(le);
         }
     }
