@@ -8,7 +8,10 @@
 #include "ArrivalEvent.h"
 #include "LeaveEvent.h"
 #include "Queue.h"
-template class Queue<Event*>;
+
+template
+class Queue<Event *>;
+
 void Company::read_file(const char *filename, Parameters &eventParameters) {
     ifstream file(filename);
     if (!file.is_open()) {
@@ -22,18 +25,19 @@ void Company::read_file(const char *filename, Parameters &eventParameters) {
          >> eventParameters.checkup_duration_MBus;
     file >> eventParameters.max_waiting_time >> eventParameters.get_on_off_time;
 
-//    cout << "Parameters:\n"
-//         << "  Number of Stations: " << eventParameters.num_stations << "\n"
-//         << "  Time Between Stations: " << eventParameters.time_between_stations << "\n"
-//         << "  Number of WBuses: " << eventParameters.num_WBuses << "\n"
-//         << "  Number of MBuses: " << eventParameters.num_MBuses << "\n"
-//         << "  Capacity of WBus: " << eventParameters.capacity_WBus << "\n"
-//         << "  Capacity of MBus: " << eventParameters.capacity_MBus << "\n"
-//         << "  Trips Before Checkup: " << eventParameters.trips_before_checkup << "\n"
-//         << "  Checkup Duration WBus: " << eventParameters.checkup_duration_WBus << "\n"
-//         << "  Checkup Duration MBus: " << eventParameters.checkup_duration_MBus << "\n"
-//         << "  Max Waiting Time: " << eventParameters.max_waiting_time << "\n"
-//         << "  Get On/Off Time: " << eventParameters.get_on_off_time << "\n";
+    cout << "Parameters:\n"
+         << "  Number of Stations: " << eventParameters.num_stations << "\n"
+         << "  Time Between Stations: " << eventParameters.time_between_stations << "\n"
+         << "  Number of WBuses: " << eventParameters.num_WBuses << "\n"
+         << "  Number of MBuses: " << eventParameters.num_MBuses << "\n"
+         << "  Capacity of WBus: " << eventParameters.capacity_WBus << "\n"
+         << "  Capacity of MBus: " << eventParameters.capacity_MBus << "\n"
+         << "  Trips Before Checkup: " << eventParameters.trips_before_checkup << "\n"
+         << "  Checkup Duration WBus: " << eventParameters.checkup_duration_WBus << "\n"
+         << "  Checkup Duration MBus: " << eventParameters.checkup_duration_MBus << "\n"
+         << "  Max Waiting Time: " << eventParameters.max_waiting_time << "\n"
+         << "  Get On/Off Time: " << eventParameters.get_on_off_time << "\n";
+
     int num_events;
     file >> num_events;
 
@@ -42,7 +46,7 @@ void Company::read_file(const char *filename, Parameters &eventParameters) {
         file >> eventType;
 
         if (eventType == 'A') {
-            ArrivalEvent* ae = new ArrivalEvent();
+            ArrivalEvent *ae = new ArrivalEvent();
             string type;
             string atime;
             int id, start, end;
@@ -51,7 +55,7 @@ void Company::read_file(const char *filename, Parameters &eventParameters) {
             //
             file >> atime;
             short hour = stoi(atime.substr(0, 2));
-            short minute = stoi(atime.substr(3 ,5));
+            short minute = stoi(atime.substr(3, 5));
             Time t(hour, minute);
             ae->setTime(t);
             file >> id;
@@ -65,12 +69,13 @@ void Company::read_file(const char *filename, Parameters &eventParameters) {
             string sptype;
             getline(file, sptype);
             if (!sptype.empty()) {
-                    ae->setSPtype(sptype);
+                ae->setSPtype(sptype);
             }
-            cout << eventType << " " << type << " " << atime << " " << id << " " << start << " " << end<<" "<<sptype<<endl;
+            cout << eventType << " " << type << " " << atime << " " << id << " " << start << " " << end << " " << sptype
+                 << endl;
             eventQueue.enqueue(ae);
         } else if (eventType == 'L') {
-            LeaveEvent* le = new LeaveEvent();
+            LeaveEvent *le = new LeaveEvent();
             string ltime;
             file >> ltime;
             short hour = stoi(ltime.substr(0, 2));
@@ -82,11 +87,12 @@ void Company::read_file(const char *filename, Parameters &eventParameters) {
             short start;
             file >> start;
             le->setStart(start);
-            cout << eventType << " " << ltime << " " << id << " " <<  start << endl;
+            cout << eventType << " " << ltime << " " << id << " " << start << endl;
             eventQueue.enqueue(le);
         }
     }
 }
+
 /*
     if (p.getPassengerType() == "NP")
         stations[events[i].strtStation].addPassengerNp(&p);
@@ -96,3 +102,19 @@ void Company::read_file(const char *filename, Parameters &eventParameters) {
         stations[events[i].strtStation].addPassengerWp(&p);
     }
     file.close();*/
+void Company::addBusToCheckup(Bus *bus, Parameters &eventParameters) {
+    if (eventParameters.trips_before_checkup >= bus->getJourneys() &&
+        (bus->getBusType() == "NP" || bus->getBusType() == "SP")) {
+        mBusMaintenance.enqueue(bus);
+    }
+    else
+        wBusMaintenance.enqueue(bus);
+}
+
+void Company::busFromMovingToWaiting(Bus *bus){
+
+}
+
+void Company::busFromWaitingToMoving(Bus *bus){
+
+}

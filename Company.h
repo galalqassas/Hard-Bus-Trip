@@ -11,6 +11,7 @@
 #include "Passenger.h"
 #include "Event.h"
 //#include "Station.h"
+class Passenger;
 using namespace std;
 
 /*
@@ -42,17 +43,23 @@ struct Parameters {
 
 class Company {
 private:
-    Queue<Bus*> station0;
+    Queue<Bus *> station0;
     Station *stations = new Station[50];
-    Queue<Event*> eventQueue;
-    Queue<Passenger*> finishedPassengerList;
-    Queue<Bus*> mBusMaintenance;
-    Queue<Bus*> wBusMaintenance;
+    Queue<Event *> eventQueue;
+    Queue<Passenger *> finishedPassengerList;
+    Queue<Bus *> mBusMaintenance;
+    Queue<Bus *> wBusMaintenance;
+    Queue<Bus *> mBusMovingForward;
+    Queue<Bus *> mBusMovingBackward;
+    Queue<Bus *> wBusMovingForward;
+    Queue<Bus *> wBusMovingBackward;
 public:
-    void read_file(const char* filename, Parameters& eventParameters);
+    void read_file(const char *filename, Parameters &eventParameters);
+
+    void addBusToCheckup(Bus *bus,Parameters&eventParameters);
+    void busFromMovingToWaiting(Bus *bus);
+    void busFromWaitingToMoving(Bus *bus);
 };
-
-
 
 
 #endif //PROJECT_UNIVERSITY_COMPANY_H

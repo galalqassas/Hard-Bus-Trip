@@ -9,6 +9,7 @@
 #include "LinkedList.h"
 #include <string>
 class Passenger;
+class Bus;
 using namespace std;
 
 
@@ -22,6 +23,7 @@ private:
     int journeys;
     int checkupHours;
     PriorityQueue<Passenger*> passengers; // moving passengers
+
     int currentStation;
     void getPrioritysp(string passenger_type);
     int direction;
@@ -54,5 +56,8 @@ public:
 
     bool isCurrentStation(const Passenger *passenger) const;
     int getDifferenceStation(const Passenger *passenger) const;
+
+
+
 };
 #endif //DATA_STRUCTURE_PROJECT_BUS_H

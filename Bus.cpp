@@ -2,6 +2,7 @@
 // Created by LENOVO on 10/12/2023.
 //
 #include "Bus.h"
+
 Bus::Bus() {}
 
 Bus::Bus(string busType, int busCapacity) : busType(busType), busCapacity(busCapacity) {}
@@ -48,39 +49,39 @@ void Bus::setCurrentStation(const int &currentStation) {
 }
 
 void Bus::getPrioritysp(string passenger_type) {
-    if (passenger_type == "sp"){
+    if (passenger_type == "sp") {
 
     }
 }
 
-void Bus::add_passenger(Passenger* passenger) {
-    if (isCurrentStation(passenger)){
+void Bus::add_passenger(Passenger *passenger) {
+    if (isCurrentStation(passenger)) {
         int priority = getDifferenceStation(passenger);
         passengers.enqueuePQ(passenger, priority);
     }
     Passenger_number++;
 }
 
-int Bus::getDifferenceStation(const Passenger* passenger) const {
+int Bus::getDifferenceStation(const Passenger *passenger) const {
     return abs(passenger->getEndStation() - passenger->getStartStation());
 }
 
 bool Bus::isCurrentStation(const Passenger *passenger) const { return passenger->getStartStation() == currentStation; }
 
 int Bus::getSPPriority(string sp_type) {
-    if (sp_type == "Aged"){
+    if (sp_type == "Aged") {
         return 1;
-    } else if (sp_type == "POD"){
+    } else if (sp_type == "POD") {
         return 2;
-    } else if (sp_type == "pregnant"){
+    } else if (sp_type == "pregnant") {
         return 3;
     } else {
         return 0;
     }
 }
 
-void Bus::remove_passenger(Passenger* passenger) {
-    int priority = abs(passenger->getEndStation()- passenger->getStartStation());
+void Bus::remove_passenger(Passenger *passenger) {
+    int priority = abs(passenger->getEndStation() - passenger->getStartStation());
     passengers.dequeuePQ();
     Num_of_trips--;
 }
@@ -120,7 +121,6 @@ void Bus::setDirection(int direction) {
 bool Bus::isBusForward() {
     return direction == 0;
 }
-
 
 
 
