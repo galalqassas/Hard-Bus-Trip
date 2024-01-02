@@ -25,6 +25,7 @@ void PriorityQueue<T>::enqueuePQ(T item, int priority) {
     if (isEmpty() || n->priority > head->priority) {
         n->next = head;
         head = n;
+        size++;
     }
     else {
         Node* temp = head;
@@ -33,6 +34,7 @@ void PriorityQueue<T>::enqueuePQ(T item, int priority) {
         }
         n->next = temp->next;
         temp->next = n;
+        size++;
     }
 }
 
@@ -42,6 +44,7 @@ void PriorityQueue<T>::dequeuePQ() {
     Node* temp = head;
     head = head->next;
     delete temp;
+    size--;
 }
 
 template <typename T>
@@ -71,4 +74,9 @@ void PriorityQueue<T>::display() {
         temp = temp->next;
     }
     cout << endl;
+}
+
+template <typename T>
+int PriorityQueue<T>::getSize() const {
+    return size;
 }

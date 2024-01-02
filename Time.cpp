@@ -3,8 +3,10 @@
 //
 
 #include "Time.h"
+#include "iostream"
+using namespace std;
 
-Time::Time() : hour(hour), min(min){}
+Time::Time() : hour(0), min(0) {}
 
 
 short Time::getHour() const {
@@ -33,7 +35,7 @@ Time::~Time() {
 }
 
 std::ostream& operator<<(std::ostream& os, const Time& time) {
-    os << "hour: " << time.hour << " min: " << time.min;
+    os << "hour: " << time.hour << " min: " << time.min << "\n";
     return os;
 }
 
@@ -46,8 +48,6 @@ bool Time::operator<(const Time& other) const {
 }
 
 
-#include "iostream"
-using namespace std;
 Time Time::operator-(const Time& other) const {
     int new_hour = hour - other.hour;
     int new_min = min - other.min;
@@ -66,9 +66,10 @@ Time Time::operator+(const Time &t) {
     result.min = min + t.min;
     if (result.min >= 60) {
         result.min -= 60;
-        result.hour += 1;
+        result.hour = hour + t.hour + 1; // Corrected line
+    } else {
+        result.hour = hour + t.hour;
     }
-    result.hour = hour + t.hour;
     if (result.hour >= 24) {
         result.hour -= 24;
     }
@@ -80,4 +81,6 @@ Time::Time(short h, short m) {
     min = m;
 }
 
-
+bool Time::operator==(const Time& other) const {
+    return (hour == other.hour) && (min == other.min);
+}

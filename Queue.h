@@ -20,11 +20,11 @@ private:
     };
     Node* front;
     Node* rear;
-
+    int size;
 public:
-    Queue() : front(nullptr), rear(nullptr) {}
+    Queue() : front(nullptr), rear(nullptr), size(0) {}
     ~Queue();
-
+    int getSize() const;
     void enqueue(T item);
     void dequeue();
     bool isEmpty();

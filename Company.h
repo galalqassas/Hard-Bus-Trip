@@ -14,17 +14,6 @@
 class Passenger;
 using namespace std;
 
-/*
-struct Event_To_Read {
-    char A_L;
-    string type;
-    string time;
-    int id;
-    int strtStation;
-    int endStation;
-    string condition;
-};
-*/
 
 struct Parameters {
     int num_stations;
@@ -55,7 +44,7 @@ private:
     Queue<Bus *> wBusMovingBackward;
 public:
     void read_file(const char *filename, Parameters &eventParameters);
-
+    void generateOutputFile(const string& filename);
     void addBusToCheckup(Bus *bus,Parameters&eventParameters);
     void busFromMovingToWaiting(Bus *bus);
     void busFromWaitingToMoving(Bus *bus);

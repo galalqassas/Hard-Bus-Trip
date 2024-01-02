@@ -65,8 +65,40 @@ int Passenger::getId() const {
     return Id;
 }
 
+void Passenger::setMoveTime(const Time &moveTime) {
+    Move_Time = moveTime;
+}
+
 void Passenger::setId(int id) {
     Id = id;
 }
 
 Passenger::Passenger() {}
+
+Time Passenger::calculateWaitTime() const {
+    // WT = MT - AT
+    return Move_Time - Arrival_Time;
+}
+
+void Passenger::calculateFinishTime(Time &busArrivalTime) {
+    // FT = busArrivalTime + this passenger's Get_Off time
+    Time getOffTime(0, Get_Off);
+    Finish_Time = busArrivalTime + getOffTime;
+}
+
+Time Passenger::calculateTripTime() const {
+    // TT = FT - MT
+    return Finish_Time - Move_Time;
+}
+
+const Time &Passenger::getMoveTime() const {
+    return Move_Time;
+}
+
+const Time &Passenger::getFinishTime() const {
+    return Finish_Time;
+}
+
+void Passenger::setFinishTime(const Time &finishTime) {
+    Finish_Time = finishTime;
+}

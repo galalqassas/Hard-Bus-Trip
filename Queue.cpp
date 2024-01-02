@@ -5,50 +5,63 @@
 #include "Queue.h"
 #include "Event.h"
 #include "PriorityQueue.h"
-template class Queue<Event*>;
-template class Queue<Passenger*>;
-template class Queue<Bus*>;
-template <typename T>
+
+template
+class Queue<Event *>;
+
+template
+class Queue<Passenger *>;
+
+template
+class Queue<Bus *>;
+
+template<typename T>
 Queue<T>::~Queue() {
-    Node* temp = front;
+    Node *temp = front;
     while (temp != nullptr) {
-        Node* next = temp->next;
+        Node *next = temp->next;
         delete temp;
         temp = next;
     }
 }
 
-template <typename T>
+template<typename T>
 void Queue<T>::enqueue(T item) {
-    Node* n = new Node(item);
+    Node *n = new Node(item);
     if (isEmpty()) {
         front = rear = n;
-    }
-    else {
+    } else {
         rear->next = n;
         rear = n;
     }
+    size++;
 }
 
-template <typename T>
+template<typename T>
 void Queue<T>::dequeue() {
     if (isEmpty()) return;
 
-    Node* temp = front;
+    Node *temp = front;
     front = front->next;
 
     if (front == nullptr) rear = nullptr;
 
     delete temp;
+    size--;
 }
 
-template <typename T>
-bool Queue<T>::isEmpty() {
+template<typename T>
+int Queue<T>::getSize() const {
+    return size;
+}
 
+
+template<typename T>
+bool Queue<T>::isEmpty() {
     return (front == nullptr && rear == nullptr);
 }
 
-template <typename T>
+template<typename T>
 T Queue<T>::peek() {
     if (isEmpty()) {
         // Return a special value for an empty queue (nullptr for pointers)
@@ -58,7 +71,7 @@ T Queue<T>::peek() {
     return front->value;
 }
 
-template <typename T>
+template<typename T>
 void Queue<T>::display() {
 
     if (isEmpty()) {
@@ -67,7 +80,7 @@ void Queue<T>::display() {
     }
 
     cout << "Queue elements are: ";
-    Node* temp = front;
+    Node *temp = front;
     while (temp != nullptr) {
         cout << temp->value << " ";
         temp = temp->next;

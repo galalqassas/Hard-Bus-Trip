@@ -2,9 +2,10 @@
 // Created by PC on 12/8/2023.
 //
 
-#include <iostream>
-#include <fstream>
 #include "Company.h"
+#include <fstream>
+#include <iomanip>
+#include <iostream>
 #include "ArrivalEvent.h"
 #include "LeaveEvent.h"
 #include "Queue.h"
@@ -93,28 +94,81 @@ void Company::read_file(const char *filename, Parameters &eventParameters) {
     }
 }
 
-/*
-    if (p.getPassengerType() == "NP")
-        stations[events[i].strtStation].addPassengerNp(&p);
-    else if (p.getPassengerType() == "SP")
-        stations[events[i].strtStation].addPassengerSp(&p, "Aged");
-    else if (p.getPassengerType() == "WP")
-        stations[events[i].strtStation].addPassengerWp(&p);
+
+void Company::generateOutputFile(const string &filename) {
+    ofstream outputFile(filename);
+    if (!outputFile.is_open()) {
+        cerr << "Error opening output file: " << filename << std::endl;
+        return;
     }
-    file.close();*/
+
+    // Writing passenger details
+    outputFile << "FT ID AT WT TT\n";
+    for (int i = 0; i < finishedPassengerList.getSize(); i++) {
+        Passenger* p = finishedPassengerList.peek();
+        finishedPassengerList.dequeue();
+
+        Time t(5, 5);
+        p->calculateFinishTime(t);  // Note: we need to ensure the busArrivalTime is set correctly before this call
+        // I added a random Time object so call the function.
+        Time finishTime = p->getFinishTime();
+        Time waitTime = p->calculateWaitTime();
+        Time tripTime = p->calculateTripTime();
+
+
+        outputFile << finishTime << " " << p->getId() << " " << p->getArrivalTime() << " "
+                   << waitTime << " " << tripTime << "\n";
+
+
+        finishedPassengerList.enqueue(p);
+    }
+
+    // Initialize statistics variables
+    int totalNP = 0, totalSP = 0, totalWP = 0;
+    int autoPromoted = 0; // Count of promoted passengers so that we don't repeat this passenger;
+
+    for (int i = 0; i < 50; i++) {
+        totalNP += stations[i].getWaitingNpForward().getSize() + stations[i].getWaitingNpBackward().getSize();
+        totalSP += stations[i].getWaitingSpForward().getSize() + stations[i].getWaitingSpBackward().getSize();
+        totalWP += stations[i].getWaitingWcPForward().getSize() + stations[i].getWaitingWcPBackward().getSize();
+    }
+
+//    double avgWaitTime = calculateAverageWaitTime();
+//    double avgTripTime = calculateAverageTripTime();
+    double autoPromotedPercentage = static_cast<double>(autoPromoted) / finishedPassengerList.getSize() * 100;
+
+    outputFile << "passengers: " << finishedPassengerList.getSize() << " [NP: " << totalNP << ", SP: " << totalSP
+               << ", WP: " << totalWP << "]\n";
+//    outputFile << "passenger Avg Wait time= " << avgWaitTime << "\n";
+//    outputFile << "passenger Avg trip time = " << avgTripTime << "\n";
+    outputFile << "Auto-promoted passengers: " << autoPromotedPercentage << "%\n";
+
+    // Calculate bus statistics
+    int totalMBuses = mBusMaintenance.getSize() + mBusMovingForward.getSize() + mBusMovingBackward.getSize();
+    int totalWBuses = wBusMaintenance.getSize() + wBusMovingForward.getSize() + wBusMovingBackward.getSize();
+//    double avgBusyTime = calculateAverageBusBusyTime();
+//    double avgUtilization = calculateAverageBusUtilization();
+
+    outputFile << "buses: " << (totalMBuses + totalWBuses) << " [WBus: " << totalWBuses << ", MBus: " << totalMBuses
+               << "]\n";
+//    outputFile << "Avg Busy time = " << fixed << setprecision(2) << avgBusyTime << "%\n";
+//    outputFile << "Avg utilization = " << fixed << setprecision(2) << avgUtilization << "%\n";
+
+    outputFile.close();
+}
+
 void Company::addBusToCheckup(Bus *bus, Parameters &eventParameters) {
     if (eventParameters.trips_before_checkup >= bus->getJourneys() &&
         (bus->getBusType() == "NP" || bus->getBusType() == "SP")) {
         mBusMaintenance.enqueue(bus);
-    }
-    else
+    } else
         wBusMaintenance.enqueue(bus);
 }
 
-void Company::busFromMovingToWaiting(Bus *bus){
+void Company::busFromMovingToWaiting(Bus *bus) {
 
 }
 
-void Company::busFromWaitingToMoving(Bus *bus){
+void Company::busFromWaitingToMoving(Bus *bus) {
 
 }

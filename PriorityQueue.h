@@ -20,14 +20,16 @@ private:
         Node(T value, int priority): value(value), next(nullptr), priority(priority) {}
     };
     Node* head;
+    int size;
 public:
-    PriorityQueue() { head = nullptr; }
+    PriorityQueue() : head(nullptr), size(0) {}
     ~PriorityQueue();
     void enqueuePQ(T item, int priority);
     void dequeuePQ();
     bool isEmpty();
     T peek();
     void display();
+    int getSize() const;
 };
 
 
