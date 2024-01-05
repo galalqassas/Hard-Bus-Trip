@@ -105,7 +105,7 @@ void Company::generateOutputFile(const string &filename) {
     // Writing passenger details
     outputFile << "FT ID AT WT TT\n";
     for (int i = 0; i < finishedPassengerList.getSize(); i++) {
-        Passenger* p = finishedPassengerList.peek();
+        Passenger *p = finishedPassengerList.peek();
         finishedPassengerList.dequeue();
 
         Time t(5, 5);
@@ -165,10 +165,32 @@ void Company::addBusToCheckup(Bus *bus, Parameters &eventParameters) {
         wBusMaintenance.enqueue(bus);
 }
 
-void Company::busFromMovingToWaiting(Bus *bus) {
+void Company::busFromMovingToWaiting(Bus *bus, Parameters &eventParameters) {
+//if()
+
 
 }
 
-void Company::busFromWaitingToMoving(Bus *bus) {
+void Company::busFromWaitingToMoving(Bus *bus, Parameters &eventParameters, Station currentStation) {
 
+// Check if the Mbus is full and there are no waiting passengers of type SP/NP
+    if ((currentStation.getWaitingNpForward().isEmpty() || currentStation.getWaitingSpForward().isEmpty()) &&
+        bus->getBusType() == "MB" && bus->getBusCapacity() == eventParameters.capacity_MBus) {
+        // Check if the bus is moving forward or backward and enqueue accordingly
+        if (bus->isBusForward()) {
+            mBusMovingForward.enqueue(bus);
+        } else {
+            mBusMovingBackward.enqueue(bus);
+        }
+    }
+// Check if the Wbus is full and there are no waiting passengers of type WP
+    else if ((currentStation.getWaitingNpForward().isEmpty() || currentStation.getWaitingSpForward().isEmpty()) &&
+             bus->getBusType() == "WB" && bus->getBusCapacity() == eventParameters.capacity_MBus) {
+        // Check if the bus is moving forward or backward and enqueue accordingly
+        if (bus->isBusForward()) {
+            wBusMovingForward.enqueue(bus);
+        } else {
+            wBusMovingBackward.enqueue(bus);
+        }
+    }
 }

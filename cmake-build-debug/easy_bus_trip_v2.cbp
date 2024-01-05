@@ -8,156 +8,158 @@
 		<Option virtualFolders="CMake Files\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="C:/Users/PC/CLionProjects/Hard-Bus-Trip/cmake-build-debug"/>
+				<Option working_dir="C:/Users/LENOVO/CLionProjects/Hard-Bus-Trip/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/PC/CLionProjects/Hard-Bus-Trip/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/PC/CLionProjects/Hard-Bus-Trip/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/PC/CLionProjects/Hard-Bus-Trip/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/PC/CLionProjects/Hard-Bus-Trip/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~1.3/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/LENOVO/CLionProjects/Hard-Bus-Trip/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~1.3/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/LENOVO/CLionProjects/Hard-Bus-Trip/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~1.3/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/LENOVO/CLionProjects/Hard-Bus-Trip/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~1.3/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/LENOVO/CLionProjects/Hard-Bus-Trip/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="easy_bus_trip_v2">
-				<Option output="C:/Users/PC/CLionProjects/Hard-Bus-Trip/cmake-build-debug/easy_bus_trip_v2.exe" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="C:/Users/PC/CLionProjects/Hard-Bus-Trip/cmake-build-debug"/>
+				<Option output="C:/Users/LENOVO/CLionProjects/Hard-Bus-Trip/cmake-build-debug/easy_bus_trip_v2.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/LENOVO/CLionProjects/Hard-Bus-Trip/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="C:/Program Files/JetBrains/CLion 2022.3.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++"/>
-					<Add directory="C:/Program Files/JetBrains/CLion 2022.3.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32"/>
-					<Add directory="C:/Program Files/JetBrains/CLion 2022.3.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward"/>
-					<Add directory="C:/Program Files/JetBrains/CLion 2022.3.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include"/>
-					<Add directory="C:/Program Files/JetBrains/CLion 2022.3.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../../../include"/>
-					<Add directory="C:/Program Files/JetBrains/CLion 2022.3.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed"/>
-					<Add directory="C:/Program Files/JetBrains/CLion 2022.3.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../../../x86_64-w64-mingw32/include"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2023.3/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2023.3/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2023.3/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/backward"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2023.3/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2023.3/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../include"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2023.3/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include-fixed"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2023.3/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../x86_64-w64-mingw32/include"/>
+					<Add directory="/mingw/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/PC/CLionProjects/Hard-Bus-Trip/cmake-build-debug/Makefile&quot;  VERBOSE=1 easy_bus_trip_v2"/>
-					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/PC/CLionProjects/Hard-Bus-Trip/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/PC/CLionProjects/Hard-Bus-Trip/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/PC/CLionProjects/Hard-Bus-Trip/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~1.3/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/LENOVO/CLionProjects/Hard-Bus-Trip/cmake-build-debug/Makefile&quot;  VERBOSE=1 easy_bus_trip_v2"/>
+					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~1.3/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/LENOVO/CLionProjects/Hard-Bus-Trip/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~1.3/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/LENOVO/CLionProjects/Hard-Bus-Trip/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~1.3/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/LENOVO/CLionProjects/Hard-Bus-Trip/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="easy_bus_trip_v2/fast">
-				<Option output="C:/Users/PC/CLionProjects/Hard-Bus-Trip/cmake-build-debug/easy_bus_trip_v2.exe" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="C:/Users/PC/CLionProjects/Hard-Bus-Trip/cmake-build-debug"/>
+				<Option output="C:/Users/LENOVO/CLionProjects/Hard-Bus-Trip/cmake-build-debug/easy_bus_trip_v2.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/LENOVO/CLionProjects/Hard-Bus-Trip/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="C:/Program Files/JetBrains/CLion 2022.3.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++"/>
-					<Add directory="C:/Program Files/JetBrains/CLion 2022.3.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32"/>
-					<Add directory="C:/Program Files/JetBrains/CLion 2022.3.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward"/>
-					<Add directory="C:/Program Files/JetBrains/CLion 2022.3.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include"/>
-					<Add directory="C:/Program Files/JetBrains/CLion 2022.3.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../../../include"/>
-					<Add directory="C:/Program Files/JetBrains/CLion 2022.3.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed"/>
-					<Add directory="C:/Program Files/JetBrains/CLion 2022.3.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../../../x86_64-w64-mingw32/include"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2023.3/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2023.3/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2023.3/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/backward"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2023.3/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2023.3/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../include"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2023.3/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include-fixed"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2023.3/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../x86_64-w64-mingw32/include"/>
+					<Add directory="/mingw/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/PC/CLionProjects/Hard-Bus-Trip/cmake-build-debug/Makefile&quot;  VERBOSE=1 easy_bus_trip_v2/fast"/>
-					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/PC/CLionProjects/Hard-Bus-Trip/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/PC/CLionProjects/Hard-Bus-Trip/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/PC/CLionProjects/Hard-Bus-Trip/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~1.3/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/LENOVO/CLionProjects/Hard-Bus-Trip/cmake-build-debug/Makefile&quot;  VERBOSE=1 easy_bus_trip_v2/fast"/>
+					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~1.3/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/LENOVO/CLionProjects/Hard-Bus-Trip/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~1.3/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/LENOVO/CLionProjects/Hard-Bus-Trip/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~1.3/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/LENOVO/CLionProjects/Hard-Bus-Trip/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="edit_cache">
-				<Option working_dir="C:/Users/PC/CLionProjects/Hard-Bus-Trip/cmake-build-debug"/>
+				<Option working_dir="C:/Users/LENOVO/CLionProjects/Hard-Bus-Trip/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/PC/CLionProjects/Hard-Bus-Trip/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/PC/CLionProjects/Hard-Bus-Trip/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/PC/CLionProjects/Hard-Bus-Trip/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/PC/CLionProjects/Hard-Bus-Trip/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~1.3/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/LENOVO/CLionProjects/Hard-Bus-Trip/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~1.3/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/LENOVO/CLionProjects/Hard-Bus-Trip/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~1.3/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/LENOVO/CLionProjects/Hard-Bus-Trip/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~1.3/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/LENOVO/CLionProjects/Hard-Bus-Trip/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
-				<Option working_dir="C:/Users/PC/CLionProjects/Hard-Bus-Trip/cmake-build-debug"/>
+				<Option working_dir="C:/Users/LENOVO/CLionProjects/Hard-Bus-Trip/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/PC/CLionProjects/Hard-Bus-Trip/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/PC/CLionProjects/Hard-Bus-Trip/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/PC/CLionProjects/Hard-Bus-Trip/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/PC/CLionProjects/Hard-Bus-Trip/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~1.3/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/LENOVO/CLionProjects/Hard-Bus-Trip/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~1.3/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/LENOVO/CLionProjects/Hard-Bus-Trip/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~1.3/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/LENOVO/CLionProjects/Hard-Bus-Trip/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~1.3/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/LENOVO/CLionProjects/Hard-Bus-Trip/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="C:/Users/PC/CLionProjects/Hard-Bus-Trip/ArrivalEvent.cpp">
+		<Unit filename="C:/Users/LENOVO/CLionProjects/Hard-Bus-Trip/ArrivalEvent.cpp">
 			<Option target="easy_bus_trip_v2"/>
 		</Unit>
-		<Unit filename="C:/Users/PC/CLionProjects/Hard-Bus-Trip/ArrivalEvent.h">
+		<Unit filename="C:/Users/LENOVO/CLionProjects/Hard-Bus-Trip/ArrivalEvent.h">
 			<Option target="easy_bus_trip_v2"/>
 		</Unit>
-		<Unit filename="C:/Users/PC/CLionProjects/Hard-Bus-Trip/Bus.cpp">
+		<Unit filename="C:/Users/LENOVO/CLionProjects/Hard-Bus-Trip/Bus.cpp">
 			<Option target="easy_bus_trip_v2"/>
 		</Unit>
-		<Unit filename="C:/Users/PC/CLionProjects/Hard-Bus-Trip/Bus.h">
+		<Unit filename="C:/Users/LENOVO/CLionProjects/Hard-Bus-Trip/Bus.h">
 			<Option target="easy_bus_trip_v2"/>
 		</Unit>
-		<Unit filename="C:/Users/PC/CLionProjects/Hard-Bus-Trip/Company.cpp">
+		<Unit filename="C:/Users/LENOVO/CLionProjects/Hard-Bus-Trip/Company.cpp">
 			<Option target="easy_bus_trip_v2"/>
 		</Unit>
-		<Unit filename="C:/Users/PC/CLionProjects/Hard-Bus-Trip/Company.h">
+		<Unit filename="C:/Users/LENOVO/CLionProjects/Hard-Bus-Trip/Company.h">
 			<Option target="easy_bus_trip_v2"/>
 		</Unit>
-		<Unit filename="C:/Users/PC/CLionProjects/Hard-Bus-Trip/Event.cpp">
+		<Unit filename="C:/Users/LENOVO/CLionProjects/Hard-Bus-Trip/Event.cpp">
 			<Option target="easy_bus_trip_v2"/>
 		</Unit>
-		<Unit filename="C:/Users/PC/CLionProjects/Hard-Bus-Trip/Event.h">
+		<Unit filename="C:/Users/LENOVO/CLionProjects/Hard-Bus-Trip/Event.h">
 			<Option target="easy_bus_trip_v2"/>
 		</Unit>
-		<Unit filename="C:/Users/PC/CLionProjects/Hard-Bus-Trip/LeaveEvent.cpp">
+		<Unit filename="C:/Users/LENOVO/CLionProjects/Hard-Bus-Trip/LeaveEvent.cpp">
 			<Option target="easy_bus_trip_v2"/>
 		</Unit>
-		<Unit filename="C:/Users/PC/CLionProjects/Hard-Bus-Trip/LeaveEvent.h">
+		<Unit filename="C:/Users/LENOVO/CLionProjects/Hard-Bus-Trip/LeaveEvent.h">
 			<Option target="easy_bus_trip_v2"/>
 		</Unit>
-		<Unit filename="C:/Users/PC/CLionProjects/Hard-Bus-Trip/LinkedList.cpp">
+		<Unit filename="C:/Users/LENOVO/CLionProjects/Hard-Bus-Trip/LinkedList.cpp">
 			<Option target="easy_bus_trip_v2"/>
 		</Unit>
-		<Unit filename="C:/Users/PC/CLionProjects/Hard-Bus-Trip/LinkedList.h">
+		<Unit filename="C:/Users/LENOVO/CLionProjects/Hard-Bus-Trip/LinkedList.h">
 			<Option target="easy_bus_trip_v2"/>
 		</Unit>
-		<Unit filename="C:/Users/PC/CLionProjects/Hard-Bus-Trip/NpPassengerQueue.cpp">
+		<Unit filename="C:/Users/LENOVO/CLionProjects/Hard-Bus-Trip/NpPassengerQueue.cpp">
 			<Option target="easy_bus_trip_v2"/>
 		</Unit>
-		<Unit filename="C:/Users/PC/CLionProjects/Hard-Bus-Trip/NpPassengerQueue.h">
+		<Unit filename="C:/Users/LENOVO/CLionProjects/Hard-Bus-Trip/NpPassengerQueue.h">
 			<Option target="easy_bus_trip_v2"/>
 		</Unit>
-		<Unit filename="C:/Users/PC/CLionProjects/Hard-Bus-Trip/Passenger.cpp">
+		<Unit filename="C:/Users/LENOVO/CLionProjects/Hard-Bus-Trip/Passenger.cpp">
 			<Option target="easy_bus_trip_v2"/>
 		</Unit>
-		<Unit filename="C:/Users/PC/CLionProjects/Hard-Bus-Trip/Passenger.h">
+		<Unit filename="C:/Users/LENOVO/CLionProjects/Hard-Bus-Trip/Passenger.h">
 			<Option target="easy_bus_trip_v2"/>
 		</Unit>
-		<Unit filename="C:/Users/PC/CLionProjects/Hard-Bus-Trip/PriorityQueue.cpp">
+		<Unit filename="C:/Users/LENOVO/CLionProjects/Hard-Bus-Trip/PriorityQueue.cpp">
 			<Option target="easy_bus_trip_v2"/>
 		</Unit>
-		<Unit filename="C:/Users/PC/CLionProjects/Hard-Bus-Trip/PriorityQueue.h">
+		<Unit filename="C:/Users/LENOVO/CLionProjects/Hard-Bus-Trip/PriorityQueue.h">
 			<Option target="easy_bus_trip_v2"/>
 		</Unit>
-		<Unit filename="C:/Users/PC/CLionProjects/Hard-Bus-Trip/Queue.cpp">
+		<Unit filename="C:/Users/LENOVO/CLionProjects/Hard-Bus-Trip/Queue.cpp">
 			<Option target="easy_bus_trip_v2"/>
 		</Unit>
-		<Unit filename="C:/Users/PC/CLionProjects/Hard-Bus-Trip/Queue.h">
+		<Unit filename="C:/Users/LENOVO/CLionProjects/Hard-Bus-Trip/Queue.h">
 			<Option target="easy_bus_trip_v2"/>
 		</Unit>
-		<Unit filename="C:/Users/PC/CLionProjects/Hard-Bus-Trip/Station.cpp">
+		<Unit filename="C:/Users/LENOVO/CLionProjects/Hard-Bus-Trip/Station.cpp">
 			<Option target="easy_bus_trip_v2"/>
 		</Unit>
-		<Unit filename="C:/Users/PC/CLionProjects/Hard-Bus-Trip/Station.h">
+		<Unit filename="C:/Users/LENOVO/CLionProjects/Hard-Bus-Trip/Station.h">
 			<Option target="easy_bus_trip_v2"/>
 		</Unit>
-		<Unit filename="C:/Users/PC/CLionProjects/Hard-Bus-Trip/Time.cpp">
+		<Unit filename="C:/Users/LENOVO/CLionProjects/Hard-Bus-Trip/Time.cpp">
 			<Option target="easy_bus_trip_v2"/>
 		</Unit>
-		<Unit filename="C:/Users/PC/CLionProjects/Hard-Bus-Trip/Time.h">
+		<Unit filename="C:/Users/LENOVO/CLionProjects/Hard-Bus-Trip/Time.h">
 			<Option target="easy_bus_trip_v2"/>
 		</Unit>
-		<Unit filename="C:/Users/PC/CLionProjects/Hard-Bus-Trip/main.cpp">
+		<Unit filename="C:/Users/LENOVO/CLionProjects/Hard-Bus-Trip/main.cpp">
 			<Option target="easy_bus_trip_v2"/>
 		</Unit>
-		<Unit filename="C:/Users/PC/CLionProjects/Hard-Bus-Trip/CMakeLists.txt">
+		<Unit filename="C:/Users/LENOVO/CLionProjects/Hard-Bus-Trip/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
 	</Project>

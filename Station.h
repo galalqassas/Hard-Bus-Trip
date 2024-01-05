@@ -23,17 +23,42 @@ private:
     Queue<Passenger*> waitingNPBackward;
     Queue<Bus*> availableBusesForward;
     Queue<Bus*> availableBusesBackward;
+    // I did not know where is the waiting bus Queue, so I will create one, you can change it later.
+    Queue<Bus *>waitingMBusesForward;
+    Queue<Bus *>waitingWBusesForward;
+    Queue<Bus *>waitingMBusesBackward;
+    Queue<Bus *>waitingWBusesBackward;
+public:
+    const Queue<Bus *> &getWaitingWBusesBackward() const;
+
+    void setWaitingWBusesBackward(const Queue<Bus *> &waitingWBusesBackward);
+
+public:
+    const Queue<Bus *> &getWaitingWBusesForward() const;
+
+    void setWaitingWBusesForward(const Queue<Bus *> &waitingWBusesForward);
+
+    const Queue<Bus *> &getWaitingMBusesBackward() const;
+
+    void setWaitingMBusesBackward(const Queue<Bus *> &waitingMBusesBackward);
+
+public:
+    const Queue<Bus *> &getWaitingMBusesForward() const;
+
+    void setWaitingMBusesForward(const Queue<Bus *> &waitingMBusesForward);
+
+private:
     int getSPPriority(string sp_type);
     bool isPassengerForward(const Passenger *passenger) const;
 public:
     // getters and setters
     short getStationNumber() const;
 
-    const PriorityQueue<Passenger*> &getWaitingSpForward() const;
+    const PriorityQueue<Passenger *> getWaitingSpForward() const;
     void setWaitingSpForward(const PriorityQueue<Passenger*> &waitingSpForward);
     const PriorityQueue<Passenger*> &getWaitingSpBackward() const;
     void setWaitingSpBackward(const PriorityQueue<Passenger*> &waitingSpBackward);
-    const Queue<Passenger*> &getWaitingNpForward() const;
+    const Queue<Passenger *> getWaitingNpForward() const;
     void setWaitingNpForward(const Queue<Passenger*> &waitingNpForward);
     const Queue<Passenger*> &getWaitingNpBackward() const;
     void setWaitingNpBackward(const Queue<Passenger*> &waitingNpBackward);

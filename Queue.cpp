@@ -57,7 +57,7 @@ int Queue<T>::getSize() const {
 
 
 template<typename T>
-bool Queue<T>::isEmpty() {
+bool Queue<T>::isEmpty() const {
     return (front == nullptr && rear == nullptr);
 }
 

@@ -48,7 +48,7 @@ void PriorityQueue<T>::dequeuePQ() {
 }
 
 template <typename T>
-bool PriorityQueue<T>::isEmpty() {
+bool PriorityQueue<T>::isEmpty() const {
     return (head == nullptr);
 }
 

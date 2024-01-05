@@ -12,7 +12,7 @@ short Station::getStationNumber() const {
 }
 
 
-const PriorityQueue<Passenger*> &Station::getWaitingSpForward() const {
+const PriorityQueue<Passenger *> Station::getWaitingSpForward() const {
     return waitingSPForward;
 }
 
@@ -28,7 +28,7 @@ void Station::setWaitingSpBackward(const PriorityQueue<Passenger*> &waitingSpBac
     waitingSPBackward = waitingSpBackward;
 }
 
-const Queue<Passenger*> &Station::getWaitingNpForward() const {
+const Queue<Passenger *> /*I removed the & here and add const in this function and in isEmpty function inside Queue*/Station::getWaitingNpForward() const {
     return waitingNPForward;
 }
 
@@ -150,6 +150,38 @@ void Station::promotePassenger(Passenger* passenger) {
     passenger->setPassengerType("SP");
     removePassengerNp(passenger);
     addPassengerSp(passenger, "Aged");
+}
+
+const Queue<Bus *> &Station::getWaitingMBusesForward() const {
+    return waitingMBusesForward;
+}
+
+void Station::setWaitingMBusesForward(const Queue<Bus *> &waitingMBusesForward) {
+    Station::waitingMBusesForward = waitingMBusesForward;
+}
+
+const Queue<Bus *> &Station::getWaitingWBusesForward() const {
+    return waitingWBusesForward;
+}
+
+void Station::setWaitingWBusesForward(const Queue<Bus *> &waitingWBusesForward) {
+    Station::waitingWBusesForward = waitingWBusesForward;
+}
+
+const Queue<Bus *> &Station::getWaitingMBusesBackward() const {
+    return waitingMBusesBackward;
+}
+
+void Station::setWaitingMBusesBackward(const Queue<Bus *> &waitingMBusesBackward) {
+    Station::waitingMBusesBackward = waitingMBusesBackward;
+}
+
+const Queue<Bus *> &Station::getWaitingWBusesBackward() const {
+    return waitingWBusesBackward;
+}
+
+void Station::setWaitingWBusesBackward(const Queue<Bus *> &waitingWBusesBackward) {
+    Station::waitingWBusesBackward = waitingWBusesBackward;
 }
 
 

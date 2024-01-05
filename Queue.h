@@ -27,7 +27,7 @@ public:
     int getSize() const;
     void enqueue(T item);
     void dequeue();
-    bool isEmpty();
+    bool isEmpty() const;
     T peek();
     void display();
 };

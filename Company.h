@@ -46,8 +46,8 @@ public:
     void read_file(const char *filename, Parameters &eventParameters);
     void generateOutputFile(const string& filename);
     void addBusToCheckup(Bus *bus,Parameters&eventParameters);
-    void busFromMovingToWaiting(Bus *bus);
-    void busFromWaitingToMoving(Bus *bus);
+    void busFromMovingToWaiting(Bus *bus,Parameters &eventParameters);
+    void busFromWaitingToMoving(Bus *bus,Parameters  &eventParameters,Station currentStation);
 };
 
 
