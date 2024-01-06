@@ -12,10 +12,11 @@
 #include <map>
 #include <algorithm>
 
-template
-class Queue<Event *>;
+template class Queue<Event *>;
+class Passenger;
+class Time;
 
-void Company::read_file(const char *filename, Parameters &eventParameters) {
+void Company::read_file(const char *filename, Parameters &eventParameters,ArrivalEvent *ae,LeaveEvent *le) {
     ifstream file(filename);
     if (!file.is_open()) {
         cerr << "Error opening file: " << filename << endl;
@@ -49,7 +50,6 @@ void Company::read_file(const char *filename, Parameters &eventParameters) {
         file >> eventType;
 
         if (eventType == 'A') {
-            ArrivalEvent *ae = new ArrivalEvent();
             string type;
             string atime;
             int id, start, end;
@@ -78,7 +78,6 @@ void Company::read_file(const char *filename, Parameters &eventParameters) {
                  << endl;
             eventQueue.enqueue(ae);
         } else if (eventType == 'L') {
-            LeaveEvent *le = new LeaveEvent();
             string ltime;
             file >> ltime;
             short hour = stoi(ltime.substr(0, 2));
@@ -202,4 +201,56 @@ void Company::busFromWaitingToMoving(Bus *bus, Parameters &eventParameters, Stat
             wBusMovingBackward.enqueue(bus);
         }
     }
+
 }
+
+void Company::setCurrentTime(const Time &currentTime) {
+    Company::currentTime = currentTime;
+}
+
+void Company:: simulation(Company c)
+{
+    //Time to start the program
+    Time currenttime;
+    currenttime.setTime(0,0);
+    c.setCurrentTime(currenttime);
+    //Create events
+    LeaveEvent *le = new LeaveEvent();
+    ArrivalEvent *ae = new ArrivalEvent();
+    //File name
+    const char* filename = "C:\\Users\\LENOVO\\CLionProjects\\Hard-Bus-Trip\\random_file.txt";
+    //One of the most important things
+    Parameters eventParameters;
+    //Read from the function
+    read_file(filename,eventParameters,ae,le);
+    //Create MBus
+    for(int i=0 ; i<eventParameters.num_MBuses ; i++){
+        Bus* newBus = new Bus("MB", eventParameters.capacity_MBus);
+        mBusHolder.enqueue(newBus);
+    }
+    //Create WBus
+    for(int i=0 ; i<eventParameters.num_WBuses ; i++){
+        Bus* newBus = new Bus("MB", eventParameters.capacity_MBus);
+        wBusHolder.enqueue(newBus);
+    }
+
+
+
+}
+
+const Queue<Bus *> &Company::getMBusHolder() const {
+    return mBusHolder;
+}
+
+void Company::setMBusHolder(const Queue<Bus *> &mBusHolder) {
+    Company::mBusHolder = mBusHolder;
+}
+
+const Queue<Bus *> &Company::getWBusHolder() const {
+    return wBusHolder;
+}
+
+void Company::setWBusHolder(const Queue<Bus *> &wBusHolder) {
+    Company::wBusHolder = wBusHolder;
+}
+

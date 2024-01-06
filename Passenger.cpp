@@ -3,7 +3,7 @@
 //
 
 #include "Passenger.h"
-
+class Passenger;
 
 Passenger::Passenger() : Auto_Promoted(false), Max_Wait_Time(0, 0) {}
 
