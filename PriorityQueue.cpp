@@ -39,12 +39,16 @@ void PriorityQueue<T>::enqueuePQ(T item, int priority) {
 }
 
 template <typename T>
-void PriorityQueue<T>::dequeuePQ() {
-    if (isEmpty()) return;
+T PriorityQueue<T>::dequeuePQ() {
+    if (isEmpty()) {
+        cout << "Empty Queue";
+    }
     Node* temp = head;
+    T dequeuedItem = head->value;
     head = head->next;
     delete temp;
     size--;
+    return dequeuedItem;
 }
 
 template <typename T>
@@ -55,8 +59,7 @@ bool PriorityQueue<T>::isEmpty() const {
 template <typename T>
 T PriorityQueue<T>::peek() {
     if (isEmpty()) {
-        // Return a default-constructed value for type T when the queue is empty
-        return T();
+        cout << "Empty Queue";
     }
     return head->value;
 }

@@ -25,7 +25,7 @@ public:
     PriorityQueue() : head(nullptr), size(0) {}
     ~PriorityQueue();
     void enqueuePQ(T item, int priority);
-    void dequeuePQ();
+    T dequeuePQ();
     bool isEmpty() const;
     T peek();
     void display();

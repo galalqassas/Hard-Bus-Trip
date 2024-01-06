@@ -11,7 +11,6 @@ Bus::Bus(string busType, int busCapacity) : busType(busType), busCapacity(busCap
                                             direction(0), totalBusyTime(0), totalCapacityTime(0) {}
 
 
-
 void Bus::setBusType(string bt) {
     busType = bt;
 }

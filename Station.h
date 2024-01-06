@@ -23,14 +23,14 @@ private:
     Queue<Passenger*> waitingNPBackward;
     Queue<Bus*> availableBusesForward;
     Queue<Bus*> availableBusesBackward;
-    // I did not know where is the waiting bus Queue, so I will create one, you can change it later.
+
     Queue<Bus *>waitingMBusesForward;
     Queue<Bus *>waitingWBusesForward;
     Queue<Bus *>waitingMBusesBackward;
     Queue<Bus *>waitingWBusesBackward;
     int getSPPriority(string sp_type);
-    bool isPassengerForward(const Passenger *passenger) const;
 public:
+    bool isPassengerForward(const Passenger *passenger) const;
     const Queue<Bus *> &getWaitingWBusesBackward() const;
     void setWaitingWBusesBackward(const Queue<Bus *> &waitingWBusesBackward);
     const Queue<Bus *> &getWaitingWBusesForward() const;
@@ -39,6 +39,9 @@ public:
     void setWaitingMBusesBackward(const Queue<Bus *> &waitingMBusesBackward);
     const Queue<Bus *> &getWaitingMBusesForward() const;
     void setWaitingMBusesForward(const Queue<Bus *> &waitingMBusesForward);
+    void removePassengerWp(Passenger* passenger);
+    void removePassengerNp(Passenger* passenger);
+    void removePassengerSp(Passenger* passenger);
     // getters and setters
     short getStationNumber() const;
     const PriorityQueue<Passenger *> getWaitingSpForward() const;
@@ -62,9 +65,8 @@ public:
     void addPassengerSp(Passenger* passenger, string type);
     void addPassengerNp(Passenger* passenger);
 
-    void removePassengerWp(Passenger* passenger);
-    void removePassengerNp(Passenger* passenger);
-    void removePassengerSp(Passenger* passenger);
+
+    void removePassenger(int id);
     void addBusForward(Bus* bus);
     void addBusBackward(Bus* bus);
 

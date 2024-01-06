@@ -115,3 +115,7 @@ bool Passenger::isAutoPromoted() const {
     return false;
 }
 
+bool Passenger::isForward() {
+    return (getEndStation() - getStartStation() > 0);
+}
+

@@ -49,8 +49,8 @@ bool Time::operator<(const Time& other) const {
 
 
 Time Time::operator-(const Time& other) const {
-    int new_hour = hour - other.hour;
-    int new_min = min - other.min;
+    short new_hour = hour - other.hour;
+    short new_min = min - other.min;
     if (new_min < 0) {
         new_hour--;
         new_min += 60; // previous hour
@@ -61,7 +61,7 @@ Time Time::operator-(const Time& other) const {
     return Time(new_hour, new_min);
 }
 
-Time Time::operator+(const Time &t) {
+Time Time::operator+(const Time &t) const {
     Time result;
     result.min = min + t.min;
     if (result.min >= 60) {

@@ -23,7 +23,7 @@ public:
     bool operator<(const Time& other) const;
     friend std::ostream& operator<<(std::ostream& os, const Time& time);
     Time operator-(const Time& other) const;
-    Time operator+(const Time& t);
+    Time operator+(const Time& t) const;
     bool operator==(const Time& other) const;
     int getTotalMinutes();
     ~Time();

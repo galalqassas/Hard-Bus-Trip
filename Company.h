@@ -32,6 +32,7 @@ struct Parameters {
 
 class Company {
 private:
+    Time currentTime;
     Queue<Bus *> station0;
     Station *stations = new Station[50];
     Queue<Event *> eventQueue;
@@ -43,11 +44,15 @@ private:
     Queue<Bus *> wBusMovingForward;
     Queue<Bus *> wBusMovingBackward;
 public:
+    Company();
+    Time getCurrentTime() const;
     void read_file(const char *filename, Parameters &eventParameters);
     void generateOutputFile(const string& filename);
     void addBusToCheckup(Bus *bus,Parameters&eventParameters);
     void busFromMovingToWaiting(Bus *bus,Parameters &eventParameters);
     void busFromWaitingToMoving(Bus *bus,Parameters  &eventParameters,Station currentStation);
+    Station getStation(int stationNumber);
+    void incrementTime(int increment = 1);
 };
 
 

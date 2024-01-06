@@ -63,7 +63,7 @@ public:
     Time calculateWaitTime() const;
     void calculateFinishTime(Time &busArrivalTime);
     Time calculateTripTime() const;
-
+    bool isForward();
     bool isAutoPromoted() const; // Method to check auto-promotion
 };
 

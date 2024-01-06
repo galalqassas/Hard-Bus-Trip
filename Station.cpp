@@ -4,7 +4,7 @@
 
 #include "Station.h"
 #include "Passenger.h"
-# include "PriorityQueue.h"
+#include "PriorityQueue.h"
 #include "Queue.h"
 
 short Station::getStationNumber() const {
@@ -182,6 +182,30 @@ const Queue<Bus *> &Station::getWaitingWBusesBackward() const {
 
 void Station::setWaitingWBusesBackward(const Queue<Bus *> &waitingWBusesBackward) {
     Station::waitingWBusesBackward = waitingWBusesBackward;
+}
+
+void Station::removePassenger(int id) {
+    // Lambda function to search through a queue and remove a passenger with a given ID.
+    auto removePassengerFromQueue = [&](Queue<Passenger*> &queue, void (Station::*removalFunction)(Passenger*)) {
+        int size = queue.getSize();
+        for (int i = 0; i < size; ++i) {
+            Passenger* current = queue.dequeue();
+            if (current->getId() == id) {
+                (this->*removalFunction)(current);
+                break; // Stop searching after finding the passenger
+            } else {
+                queue.enqueue(current); // Re-enqueue the passenger if it's not the one to remove
+            }
+        }
+    };
+
+    // Iterate over each queue and remove the passenger if found.
+    removePassengerFromQueue(waitingWcPForward, &Station::removePassengerWp);
+    removePassengerFromQueue(waitingWcPBackward, &Station::removePassengerWp);
+    removePassengerFromQueue(waitingNPForward, &Station::removePassengerNp);
+    removePassengerFromQueue(waitingNPBackward, &Station::removePassengerNp);
+
+
 }
 
 

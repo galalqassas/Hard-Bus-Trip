@@ -40,7 +40,6 @@ void Queue<T>::enqueue(T item) {
 template<typename T>
 T Queue<T>::dequeue() {
     if (isEmpty()) {
-
          return nullptr;
     }
 

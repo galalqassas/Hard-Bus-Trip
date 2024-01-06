@@ -105,15 +105,14 @@ void Company::generateOutputFile(const string &filename) {
         return;
     }
 
-    // Assuming Time class has a proper comparison operator for map ordering
     map<Time, Queue<Passenger*>> sortedPassengers;
     while (!finishedPassengerList.isEmpty()) {
-        Passenger *p = finishedPassengerList.dequeue();
+        Passenger* p = finishedPassengerList.dequeue();
         sortedPassengers[p->getFinishTime()].enqueue(p);
     }
 
     outputFile << "FT ID AT WT TT\n";
-    long long totalWaitTime = 0, totalTripTime = 0;
+    long totalWaitTime = 0, totalTripTime = 0;
     int totalNP = 0, totalSP = 0, totalWP = 0, autoPromoted = 0;
 
     for (auto &pair : sortedPassengers) {
@@ -152,17 +151,17 @@ void Company::generateOutputFile(const string &filename) {
             + mBusMovingBackward.getSize();
     int totalWBuses = wBusMaintenance.getSize()
             + wBusMovingForward.getSize() + wBusMovingBackward.getSize();
-
     double totalBusyTime = 0, totalUtilization = 0;
+
     // Bus statistics
-
-
-
-    outputFile << "passengers: " << totalPassengers << " [NP: " << totalNP << ", SP: " << totalSP << ", WP: " << totalWP << "]\n";
+    outputFile << "passengers: " << totalPassengers << " [NP: " << totalNP
+                << ", SP: " << totalSP << ", WP: " << totalWP << "]\n";
     outputFile << "passenger Avg Wait time= " << avgWaitTime << "\n";
     outputFile << "passenger Avg trip time = " << avgTripTime << "\n";
-    outputFile << "Auto-promoted passengers: " << fixed << setprecision(2) << autoPromotedPercentage << "%\n";
-    outputFile << "buses: " << totalBuses << " [WBus: " << totalWBuses << ", MBus: " << totalMBuses << "]\n";
+    outputFile << "Auto-promoted passengers: " << fixed << setprecision(2)
+                << autoPromotedPercentage << "%\n";
+    outputFile << "buses: " << totalBuses << " [WBus: "
+                << totalWBuses << ", MBus: " << totalMBuses << "]\n";
 
     outputFile.close();
 }
@@ -176,7 +175,7 @@ void Company::addBusToCheckup(Bus *bus, Parameters &eventParameters) {
 }
 
 void Company::busFromMovingToWaiting(Bus *bus, Parameters &eventParameters) {
-//if()
+    //if()
 
 
 }
@@ -204,4 +203,21 @@ void Company::busFromWaitingToMoving(Bus *bus, Parameters &eventParameters, Stat
             wBusMovingBackward.enqueue(bus);
         }
     }
+}
+
+Station Company::getStation(int stationNumber) {
+    return stations[stationNumber];
+}
+
+Time Company::getCurrentTime() const {
+    return currentTime;
+}
+
+void Company::incrementTime(int increment) {
+    currentTime = currentTime + Time(0, increment);
+}
+
+Company::Company() {
+    Time t;
+    currentTime = t;
 }
