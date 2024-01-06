@@ -10,9 +10,6 @@
 #include "Queue.h"
 #include "Passenger.h"
 #include "Event.h"
-#include "LeaveEvent.h"
-#include "ArrivalEvent.h"
-
 //#include "Station.h"
 class Passenger;
 using namespace std;
@@ -35,11 +32,6 @@ struct Parameters {
 
 class Company {
 private:
-    Time currentTime;
-public:
-    void setCurrentTime(const Time &currentTime);
-
-private:
     Queue<Bus *> station0;
     Station *stations = new Station[50];
     Queue<Event *> eventQueue;
@@ -50,27 +42,12 @@ private:
     Queue<Bus *> mBusMovingBackward;
     Queue<Bus *> wBusMovingForward;
     Queue<Bus *> wBusMovingBackward;
-
-    //Add to the create buses
-    Queue<Bus *> mBusHolder;
-    Queue<Bus *> wBusHolder;
 public:
-    const Queue<Bus *> &getMBusHolder() const;
-
-    void setMBusHolder(const Queue<Bus *> &mBusHolder);
-
-    const Queue<Bus *> &getWBusHolder() const;
-
-    void setWBusHolder(const Queue<Bus *> &wBusHolder);
-
-    void read_file(const char *filename, Parameters &eventParameters,ArrivalEvent *ae,LeaveEvent *le);
+    void read_file(const char *filename, Parameters &eventParameters);
     void generateOutputFile(const string& filename);
     void addBusToCheckup(Bus *bus,Parameters&eventParameters);
     void busFromMovingToWaiting(Bus *bus,Parameters &eventParameters);
     void busFromWaitingToMoving(Bus *bus,Parameters  &eventParameters,Station currentStation);
-    int getCurrentTime() const;
-    void simulation(Company c);
-
 };
 
 

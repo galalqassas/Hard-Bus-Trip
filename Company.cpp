@@ -12,11 +12,12 @@
 #include <map>
 #include <algorithm>
 
-template class Queue<Event *>;
-class Passenger;
-class Time;
+using namespace std;
 
-void Company::read_file(const char *filename, Parameters &eventParameters,ArrivalEvent *ae,LeaveEvent *le) {
+template
+class Queue<Event *>;
+
+void Company::read_file(const char *filename, Parameters &eventParameters) {
     ifstream file(filename);
     if (!file.is_open()) {
         cerr << "Error opening file: " << filename << endl;
@@ -48,8 +49,8 @@ void Company::read_file(const char *filename, Parameters &eventParameters,Arriva
     for (int i = 0; i < num_events; ++i) {
         char eventType;
         file >> eventType;
-
         if (eventType == 'A') {
+            ArrivalEvent *ae = new ArrivalEvent();
             string type;
             string atime;
             int id, start, end;
@@ -78,6 +79,7 @@ void Company::read_file(const char *filename, Parameters &eventParameters,Arriva
                  << endl;
             eventQueue.enqueue(ae);
         } else if (eventType == 'L') {
+            LeaveEvent *le = new LeaveEvent();
             string ltime;
             file >> ltime;
             short hour = stoi(ltime.substr(0, 2));
@@ -104,7 +106,7 @@ void Company::generateOutputFile(const string &filename) {
     }
 
     // Assuming Time class has a proper comparison operator for map ordering
-    std::map<Time, Queue<Passenger*>> sortedPassengers;
+    map<Time, Queue<Passenger*>> sortedPassengers;
     while (!finishedPassengerList.isEmpty()) {
         Passenger *p = finishedPassengerList.dequeue();
         sortedPassengers[p->getFinishTime()].enqueue(p);
@@ -191,6 +193,7 @@ void Company::busFromWaitingToMoving(Bus *bus, Parameters &eventParameters, Stat
             mBusMovingBackward.enqueue(bus);
         }
     }
+
 // Check if the Wbus is full and there are no waiting passengers of type WP
     else if ((currentStation.getWaitingNpForward().isEmpty() || currentStation.getWaitingSpForward().isEmpty()) &&
              bus->getBusType() == "WB" && bus->getBusCapacity() == eventParameters.capacity_MBus) {
@@ -201,56 +204,4 @@ void Company::busFromWaitingToMoving(Bus *bus, Parameters &eventParameters, Stat
             wBusMovingBackward.enqueue(bus);
         }
     }
-
 }
-
-void Company::setCurrentTime(const Time &currentTime) {
-    Company::currentTime = currentTime;
-}
-
-void Company:: simulation(Company c)
-{
-    //Time to start the program
-    Time currenttime;
-    currenttime.setTime(0,0);
-    c.setCurrentTime(currenttime);
-    //Create events
-    LeaveEvent *le = new LeaveEvent();
-    ArrivalEvent *ae = new ArrivalEvent();
-    //File name
-    const char* filename = "C:\\Users\\LENOVO\\CLionProjects\\Hard-Bus-Trip\\random_file.txt";
-    //One of the most important things
-    Parameters eventParameters;
-    //Read from the function
-    read_file(filename,eventParameters,ae,le);
-    //Create MBus
-    for(int i=0 ; i<eventParameters.num_MBuses ; i++){
-        Bus* newBus = new Bus("MB", eventParameters.capacity_MBus);
-        mBusHolder.enqueue(newBus);
-    }
-    //Create WBus
-    for(int i=0 ; i<eventParameters.num_WBuses ; i++){
-        Bus* newBus = new Bus("MB", eventParameters.capacity_MBus);
-        wBusHolder.enqueue(newBus);
-    }
-
-
-
-}
-
-const Queue<Bus *> &Company::getMBusHolder() const {
-    return mBusHolder;
-}
-
-void Company::setMBusHolder(const Queue<Bus *> &mBusHolder) {
-    Company::mBusHolder = mBusHolder;
-}
-
-const Queue<Bus *> &Company::getWBusHolder() const {
-    return wBusHolder;
-}
-
-void Company::setWBusHolder(const Queue<Bus *> &wBusHolder) {
-    Company::wBusHolder = wBusHolder;
-}
-

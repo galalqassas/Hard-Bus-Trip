@@ -13,51 +13,55 @@ class Bus;
 using namespace std;
 
 
-
 class Bus {
 private:
-    string busType;
+    string busType;  // "WB" for Wheelchair Bus, "MB" for Mixed Bus
     int busCapacity;
-    int Num_of_trips; // number of delivery trips of this bus
-    int Passenger_number; // number of passenger travelled on this bus
+    int Num_of_trips;
+    int Passenger_number; // Total number of passengers travelled on this bus
     int journeys;
     int checkupHours;
     PriorityQueue<Passenger*> passengers; // moving passengers
 
     int currentStation;
-    void getPrioritysp(string passenger_type);
-    int direction;
-    int getSPPriority(string sp_type);
-public:
-    int getDirection() const;
-    void setDirection(int direction);
-    int getNumOfTrips() const;
-    void setNumOfTrips(int numOfTrips);
-    int getJourneys() const;
-    void setJourneys(int journeys);
-    int getCheckupHours() const;
-    void setCheckupHours(int checkupHours);
+    int direction; // 0 for forward, 1 for backward
 
-    bool isBusForward();
+    // New attributes for busy time and utilization
+    int totalBusyTime; // Total time the bus spent in service
+    int totalCapacityTime; // Sum of capacity * time for each trip
+
+public:
     Bus();
     Bus(string busType, int busCapacity);
+
     void setBusType(string bt);
     void setBusCapacity(int bc);
     string getBusType() const;
     int getBusCapacity() const;
-    int getN() const;
-    void setN(int n);
+    int getNumOfTrips() const;
+    void setNumOfTrips(int numOfTrips);
     int getPassengerNumber() const;
     void setPassengerNumber(int passengerNumber);
     const int& getCurrentStation() const;
     void setCurrentStation(const int &currentStation);
+
     void add_passenger(Passenger* passenger);
     void remove_passenger(Passenger* passenger);
 
     bool isCurrentStation(const Passenger *passenger) const;
     int getDifferenceStation(const Passenger *passenger) const;
+    int getSPPriority(string sp_type);
 
+    int getJourneys() const;
+    void setJourneys(int journeys);
+    int getCheckupHours() const;
+    void setCheckupHours(int checkupHours);
+    int getDirection() const;
+    void setDirection(int direction);
+    bool isBusForward();
 
-
+    // New methods for busy time and utilization
+    void updateBusyTime(int tripTime);
+    double calculateUtilization() const;
 };
 #endif //DATA_STRUCTURE_PROJECT_BUS_H

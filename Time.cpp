@@ -5,8 +5,6 @@
 #include "Time.h"
 #include "iostream"
 using namespace std;
-class Time;
-class Passenger;
 
 Time::Time() : hour(0), min(0) {}
 

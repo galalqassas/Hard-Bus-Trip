@@ -28,32 +28,19 @@ private:
     Queue<Bus *>waitingWBusesForward;
     Queue<Bus *>waitingMBusesBackward;
     Queue<Bus *>waitingWBusesBackward;
-public:
-    const Queue<Bus *> &getWaitingWBusesBackward() const;
-
-    void setWaitingWBusesBackward(const Queue<Bus *> &waitingWBusesBackward);
-
-public:
-    const Queue<Bus *> &getWaitingWBusesForward() const;
-
-    void setWaitingWBusesForward(const Queue<Bus *> &waitingWBusesForward);
-
-    const Queue<Bus *> &getWaitingMBusesBackward() const;
-
-    void setWaitingMBusesBackward(const Queue<Bus *> &waitingMBusesBackward);
-
-public:
-    const Queue<Bus *> &getWaitingMBusesForward() const;
-
-    void setWaitingMBusesForward(const Queue<Bus *> &waitingMBusesForward);
-
-private:
     int getSPPriority(string sp_type);
     bool isPassengerForward(const Passenger *passenger) const;
 public:
+    const Queue<Bus *> &getWaitingWBusesBackward() const;
+    void setWaitingWBusesBackward(const Queue<Bus *> &waitingWBusesBackward);
+    const Queue<Bus *> &getWaitingWBusesForward() const;
+    void setWaitingWBusesForward(const Queue<Bus *> &waitingWBusesForward);
+    const Queue<Bus *> &getWaitingMBusesBackward() const;
+    void setWaitingMBusesBackward(const Queue<Bus *> &waitingMBusesBackward);
+    const Queue<Bus *> &getWaitingMBusesForward() const;
+    void setWaitingMBusesForward(const Queue<Bus *> &waitingMBusesForward);
     // getters and setters
     short getStationNumber() const;
-
     const PriorityQueue<Passenger *> getWaitingSpForward() const;
     void setWaitingSpForward(const PriorityQueue<Passenger*> &waitingSpForward);
     const PriorityQueue<Passenger*> &getWaitingSpBackward() const;
@@ -70,7 +57,6 @@ public:
     void setAvailableBusesForward(const Queue<Bus*> &availableBusesForward);
     const Queue<Bus*> &getAvailableBusesBackward() const;
     void setAvailableBusesBackward(const Queue<Bus*> &availableBusesBackward);
-
 
     void addPassengerWp(Passenger* passenger);
     void addPassengerSp(Passenger* passenger, string type);

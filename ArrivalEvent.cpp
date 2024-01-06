@@ -21,6 +21,34 @@ Passenger ArrivalEvent::Execute() {
     new_passenger.setEndStation(end);
     new_passenger.setArrivalTime(time);
     new_passenger.setSpecialType(SPtype);
+//    Station station = new_passenger.getStartStation();
+//// Determine if the passenger is going forward or backward
+//    bool isForward = station.isPassengerForward(new_passenger);
+//
+//    // Add the passenger to the appropriate queue
+//    if (new_passenger->getPassengerType() == "SP") {
+//        if (isForward) {
+//            station.addPassengerSp(new_passenger, new_passenger->getSpecialType());
+//        } else {
+//            // Assuming there is a similar method for backward direction
+//            station.addPassengerSpBackward(new_passenger, new_passenger->getSpecialType());
+//        }
+//    } else if (new_passenger->getPassengerType() == "WP") {
+//        if (isForward) {
+//            station.addPassengerWp(new_passenger);
+//        } else {
+//            // Similar method for backward direction
+//            station.addPassengerWpBackward(new_passenger);
+//        }
+//    } else { // Assuming "NP" for normal passengers
+//        if (isForward) {
+//            station.addPassengerNp(new_passenger);
+//        } else {
+//            // Similar method for backward direction
+//            station.addPassengerNpBackward(new_passenger);
+//        }
+//    }
+//
     return new_passenger;
 }
 
