@@ -9,6 +9,8 @@
 #include "ArrivalEvent.h"
 #include "LeaveEvent.h"
 #include "Queue.h"
+#include <map>
+#include <algorithm>
 
 template
 class Queue<Event *>;
@@ -98,61 +100,68 @@ void Company::read_file(const char *filename, Parameters &eventParameters) {
 void Company::generateOutputFile(const string &filename) {
     ofstream outputFile(filename);
     if (!outputFile.is_open()) {
-        cerr << "Error opening output file: " << filename << std::endl;
+        cerr << "Error opening output file: " << filename << endl;
         return;
     }
 
-    // Writing passenger details
+    // Assuming Time class has a proper comparison operator for map ordering
+    std::map<Time, Queue<Passenger*>> sortedPassengers;
+    while (!finishedPassengerList.isEmpty()) {
+        Passenger *p = finishedPassengerList.dequeue();
+        sortedPassengers[p->getFinishTime()].enqueue(p);
+    }
+
     outputFile << "FT ID AT WT TT\n";
-    for (int i = 0; i < finishedPassengerList.getSize(); i++) {
-        Passenger *p = finishedPassengerList.peek();
-        finishedPassengerList.dequeue();
+    long long totalWaitTime = 0, totalTripTime = 0;
+    int totalNP = 0, totalSP = 0, totalWP = 0, autoPromoted = 0;
 
-        Time t(5, 5);
-        p->calculateFinishTime(t);  // Note: we need to ensure the busArrivalTime is set correctly before this call
-        // I added a random Time object so call the function.
-        Time finishTime = p->getFinishTime();
-        Time waitTime = p->calculateWaitTime();
-        Time tripTime = p->calculateTripTime();
+    for (auto &pair : sortedPassengers) {
+        while (!pair.second.isEmpty()) {
+            Passenger *p = pair.second.dequeue();
 
+            Time waitTime = p->calculateWaitTime();
+            Time tripTime = p->calculateTripTime();
+            totalWaitTime += waitTime.getTotalMinutes();
+            totalTripTime += tripTime.getTotalMinutes();
 
-        outputFile << finishTime << " " << p->getId() << " " << p->getArrivalTime() << " "
-                   << waitTime << " " << tripTime << "\n";
+            // Increment passenger type counters
+            string type = p->getPassengerType();
+            if (type == "NP") totalNP++;
+            else if (type == "SP") totalSP++;
+            else if (type == "WP") totalWP++;
 
+            // Check for auto-promoted passengers
+            if (p->isAutoPromoted()) autoPromoted++;
 
-        finishedPassengerList.enqueue(p);
+            outputFile << p->getFinishTime() << " " << p->getId() << " " << p->getArrivalTime() << " "
+                       << waitTime << " " << tripTime << "\n";
+        }
     }
 
-    // Initialize statistics variables
-    int totalNP = 0, totalSP = 0, totalWP = 0;
-    int autoPromoted = 0; // Count of promoted passengers so that we don't repeat this passenger;
+    int totalPassengers = totalNP + totalSP + totalWP;
+    double avgWaitTime = static_cast<double>(totalWaitTime) / totalPassengers;
+    double avgTripTime = static_cast<double>(totalTripTime) / totalPassengers;
+    double autoPromotedPercentage = static_cast<double>(autoPromoted) / totalNP * 100;
 
-    for (int i = 0; i < 50; i++) {
-        totalNP += stations[i].getWaitingNpForward().getSize() + stations[i].getWaitingNpBackward().getSize();
-        totalSP += stations[i].getWaitingSpForward().getSize() + stations[i].getWaitingSpBackward().getSize();
-        totalWP += stations[i].getWaitingWcPForward().getSize() + stations[i].getWaitingWcPBackward().getSize();
-    }
+    // Bus statistics
+    int totalBuses = mBusMaintenance.getSize() + wBusMaintenance.getSize()
+            + mBusMovingForward.getSize() + mBusMovingBackward.getSize()
+            + wBusMovingForward.getSize() + wBusMovingBackward.getSize();
+    int totalMBuses = mBusMaintenance.getSize() + mBusMovingForward.getSize()
+            + mBusMovingBackward.getSize();
+    int totalWBuses = wBusMaintenance.getSize()
+            + wBusMovingForward.getSize() + wBusMovingBackward.getSize();
 
-//    double avgWaitTime = calculateAverageWaitTime();
-//    double avgTripTime = calculateAverageTripTime();
-    double autoPromotedPercentage = static_cast<double>(autoPromoted) / finishedPassengerList.getSize() * 100;
+    double totalBusyTime = 0, totalUtilization = 0;
+    // Bus statistics
 
-    outputFile << "passengers: " << finishedPassengerList.getSize() << " [NP: " << totalNP << ", SP: " << totalSP
-               << ", WP: " << totalWP << "]\n";
-//    outputFile << "passenger Avg Wait time= " << avgWaitTime << "\n";
-//    outputFile << "passenger Avg trip time = " << avgTripTime << "\n";
-    outputFile << "Auto-promoted passengers: " << autoPromotedPercentage << "%\n";
 
-    // Calculate bus statistics
-    int totalMBuses = mBusMaintenance.getSize() + mBusMovingForward.getSize() + mBusMovingBackward.getSize();
-    int totalWBuses = wBusMaintenance.getSize() + wBusMovingForward.getSize() + wBusMovingBackward.getSize();
-//    double avgBusyTime = calculateAverageBusBusyTime();
-//    double avgUtilization = calculateAverageBusUtilization();
 
-    outputFile << "buses: " << (totalMBuses + totalWBuses) << " [WBus: " << totalWBuses << ", MBus: " << totalMBuses
-               << "]\n";
-//    outputFile << "Avg Busy time = " << fixed << setprecision(2) << avgBusyTime << "%\n";
-//    outputFile << "Avg utilization = " << fixed << setprecision(2) << avgUtilization << "%\n";
+    outputFile << "passengers: " << totalPassengers << " [NP: " << totalNP << ", SP: " << totalSP << ", WP: " << totalWP << "]\n";
+    outputFile << "passenger Avg Wait time= " << avgWaitTime << "\n";
+    outputFile << "passenger Avg trip time = " << avgTripTime << "\n";
+    outputFile << "Auto-promoted passengers: " << fixed << setprecision(2) << autoPromotedPercentage << "%\n";
+    outputFile << "buses: " << totalBuses << " [WBus: " << totalWBuses << ", MBus: " << totalMBuses << "]\n";
 
     outputFile.close();
 }

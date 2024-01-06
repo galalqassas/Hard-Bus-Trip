@@ -5,6 +5,10 @@
 #include "Passenger.h"
 
 
+Passenger::Passenger() : Auto_Promoted(false), Max_Wait_Time(0, 0) {}
+
+Passenger::Passenger(int maxWaitMinutes) : Auto_Promoted(false), Max_Wait_Time(0, maxWaitMinutes) {}
+
 const Time &Passenger::getArrivalTime() const {
     return Arrival_Time;
 }
@@ -73,7 +77,7 @@ void Passenger::setId(int id) {
     Id = id;
 }
 
-Passenger::Passenger() {}
+
 
 Time Passenger::calculateWaitTime() const {
     // WT = MT - AT
@@ -102,3 +106,12 @@ const Time &Passenger::getFinishTime() const {
 void Passenger::setFinishTime(const Time &finishTime) {
     Finish_Time = finishTime;
 }
+
+bool Passenger::isAutoPromoted() const {
+    Time waitTime = calculateWaitTime();
+    if (Max_Wait_Time < waitTime  && Passenger_Type == "NP") {
+        return true;
+    }
+    return false;
+}
+

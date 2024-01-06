@@ -3,9 +3,13 @@
 //
 #include "Bus.h"
 
-Bus::Bus() {}
+Bus::Bus() : busType(""), busCapacity(0), Num_of_trips(0), Passenger_number(0), journeys(0),
+             checkupHours(0), currentStation(0), direction(0), totalBusyTime(0), totalCapacityTime(0) {}
 
-Bus::Bus(string busType, int busCapacity) : busType(busType), busCapacity(busCapacity) {}
+Bus::Bus(string busType, int busCapacity) : busType(busType), busCapacity(busCapacity), Num_of_trips(0),
+                                            Passenger_number(0), journeys(0), checkupHours(0), currentStation(0),
+                                            direction(0), totalBusyTime(0), totalCapacityTime(0) {}
+
 
 
 void Bus::setBusType(string bt) {
@@ -24,14 +28,6 @@ int Bus::getBusCapacity() const {
     return busCapacity;
 }
 
-int Bus::getN() const {
-    return Num_of_trips;
-}
-
-void Bus::setN(int n) {
-    Num_of_trips = n;
-}
-
 int Bus::getPassengerNumber() const {
     return Passenger_number;
 }
@@ -48,11 +44,6 @@ void Bus::setCurrentStation(const int &currentStation) {
     Bus::currentStation = currentStation;
 }
 
-void Bus::getPrioritysp(string passenger_type) {
-    if (passenger_type == "sp") {
-
-    }
-}
 
 void Bus::add_passenger(Passenger *passenger) {
     if (isCurrentStation(passenger)) {
@@ -122,5 +113,14 @@ bool Bus::isBusForward() {
     return direction == 0;
 }
 
+void Bus::updateBusyTime(int tripTime) {
+    totalBusyTime += tripTime;
+    totalCapacityTime += tripTime * busCapacity;
+}
 
+// New method to calculate utilization
+double Bus::calculateUtilization() const {
+    if (totalBusyTime == 0) return 0;
+    return static_cast<double>(totalCapacityTime) / (totalBusyTime * busCapacity) * 100;
+}
 

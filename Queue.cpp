@@ -38,16 +38,24 @@ void Queue<T>::enqueue(T item) {
 }
 
 template<typename T>
-void Queue<T>::dequeue() {
-    if (isEmpty()) return;
+T Queue<T>::dequeue() {
+    if (isEmpty()) {
+
+         return nullptr;
+    }
 
     Node *temp = front;
     front = front->next;
 
-    if (front == nullptr) rear = nullptr;
+    if (front == nullptr) {
+        rear = nullptr;
+    }
 
+    T dequeuedValue = temp->value;
     delete temp;
     size--;
+
+    return dequeuedValue;
 }
 
 template<typename T>
@@ -73,7 +81,6 @@ T Queue<T>::peek() {
 
 template<typename T>
 void Queue<T>::display() {
-
     if (isEmpty()) {
         cout << "Queue is empty" << endl;
         return;

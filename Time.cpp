@@ -84,3 +84,7 @@ Time::Time(short h, short m) {
 bool Time::operator==(const Time& other) const {
     return (hour == other.hour) && (min == other.min);
 }
+
+int Time::getTotalMinutes() {
+    return (hour * 60 + min);
+}

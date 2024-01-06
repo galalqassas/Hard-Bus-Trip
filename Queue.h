@@ -26,7 +26,7 @@ public:
     ~Queue();
     int getSize() const;
     void enqueue(T item);
-    void dequeue();
+    T dequeue();
     bool isEmpty() const;
     T peek();
     void display();
