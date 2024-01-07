@@ -13,7 +13,6 @@ Passenger LeaveEvent::Execute() {
     new_passenger.setId(id);
     Company c;
     Station station = c.getStation(start);
-
     station.removePassenger(id);
 
     return new_passenger;

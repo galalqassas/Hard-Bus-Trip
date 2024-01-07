@@ -46,10 +46,6 @@ private:
     Queue<Bus *> mBusMovingBackward;
     Queue<Bus *> wBusMovingForward;
     Queue<Bus *> wBusMovingBackward;
-    Queue<Bus *> mBusWaitingForward;
-    Queue<Bus *> mBusWaitingBackward;
-    Queue<Bus *> wBusWaitingForward;
-    Queue<Bus *> wBusWaitingBackward;
     Queue<Bus *> station0Buses;
 public:
     Company();
@@ -65,9 +61,6 @@ public:
     void releaseBuses(Queue<Bus *> station0Buses);
 
     void setCurrentTime(const Time &currentTime);
-    void addBusFromCheckupToMoving(Bus *bus);
-
-
 };
 
 

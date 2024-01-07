@@ -236,12 +236,10 @@ void Station::onBoardBuses(Bus *bus,Passenger *passenger,int numberOfPassengerTo
 
 
 }
-void Station::takeAction(Bus * bus){
+void takeAction(Bus * bus){
 //After realising the passenger i have a lot of decisions, what is my current station?(if i am in station s i have to check if the bus will go to checkup)
 //This will be done over all the buses and when i drop buses i have to add them into a temp queue to rejoin them to the original queue
-if(bus->getCurrentStation()==50){
-    //bus->addToCheckUp();
-}
+if(bus->ge)
 }
 
 
