@@ -16,9 +16,9 @@ public:
     int getAnEnd() const;
     void setAnEnd(int anEnd);
     const string &getPtype() const;
-    void setPtype(const string &ptype);
+    void setPtype(const string& ptype);
     const string &getSPtype() const;
-    void setSPtype(const string &sPtype);
+    void setSPtype(const string& sPtype);
     Passenger Execute() override;
     friend void print(ostream& out, const ArrivalEvent& ae);
 };

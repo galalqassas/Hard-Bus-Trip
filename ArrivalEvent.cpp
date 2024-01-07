@@ -25,8 +25,6 @@ Passenger ArrivalEvent::Execute() {
     Company c;
     Station station = c.getStation(start);
 
-    bool isForward = new_passenger.isForward();
-
     // Add the passenger to the appropriate queue
     if (new_passenger.getPassengerType() == "SP") {
         station.addPassengerSp(&new_passenger, new_passenger.getSpecialType());
