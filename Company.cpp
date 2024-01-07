@@ -183,15 +183,55 @@ void Company::generateOutputFile(const string &filename) {
 
 void Company::addBusToCheckup(Bus *bus, Parameters &eventParameters) {
     if (eventParameters.trips_before_checkup >= bus->getJourneys() &&
-        (bus->getBusType() == "NP" || bus->getBusType() == "SP")) {
+        (bus->getBusType() == "MB" )) {
         mBusMaintenance.enqueue(bus);
     } else
         wBusMaintenance.enqueue(bus);
 }
+void Company::addBusFromCheckupToMoving(Bus *bus){
+    if(bus->getBusType()=="MB"){
+        if(bus->isBusForward()){
+            mBusMovingForward.enqueue(mBusMaintenance.dequeue());
+        }
+        else{
+         mBusMovingBackward.enqueue(mBusMaintenance.dequeue());
+        }
+    }
+    if(bus->getBusType()=="WP"){
+        if(!bus->isBusForward()){
+            wBusMovingForward.enqueue(wBusMaintenance.dequeue());
+        }
+        else{
+            wBusMovingBackward.enqueue(wBusMaintenance.dequeue());
+        }
+    }
+
+}
 
 void Company::busFromMovingToWaiting(Bus *bus, Parameters &eventParameters) {
-    //if()
 
+    if(this->getCurrentTime()==bus->getBusCurrenTime() && bus->getBusType()=="MB"){
+//Check if the bus time to reach its destination is the current time and the bus is MB and Forward
+        if(bus->isBusForward()){
+            mBusWaitingForward.enqueue(bus);
+        }
+//Check if the bus time to reach its destination is the current time and the bus is MB and Backward
+        else{
+            mBusWaitingBackward.enqueue(bus);
+        }
+    }
+
+    if(this->getCurrentTime()==bus->getBusCurrenTime() && bus->getBusType()=="WP"){
+//Check if the bus time to reach its destination is the current time and the bus is WP and Forward
+        if(bus->isBusForward()){
+            wBusWaitingForward.enqueue(bus);
+        }
+//Check if the bus time to reach its destination is the current time and the bus is WP and Backward
+        else{
+            wBusWaitingBackward.enqueue(bus);
+        }
+
+    }
 
 }
 
