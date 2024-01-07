@@ -30,6 +30,8 @@ public:
     bool isEmpty() const;
     T peek();
     void display();
+    void removeItem(T item);
+
 };
 
 

@@ -93,3 +93,36 @@ void Queue<T>::display() {
     }
     cout << endl;
 }
+
+
+template<typename T>
+void Queue<T>::removeItem(T item) {
+    Node *temp = front;
+    Node *prev = nullptr;
+
+    while (temp != nullptr) {
+        if (temp->value == item) {
+            if (prev == nullptr) {
+                // Item is at the front
+                front = front->next;
+                delete temp;
+                temp = front;
+                if (front == nullptr) {
+                    rear = nullptr; // Queue becomes empty
+                }
+            } else {
+                // Item is in the middle or at the end
+                prev->next = temp->next;
+                if (rear == temp) {
+                    rear = prev; // Item is at the end
+                }
+                delete temp;
+                temp = prev->next;
+            }
+            size--;
+        } else {
+            prev = temp;
+            temp = temp->next;
+        }
+    }
+}

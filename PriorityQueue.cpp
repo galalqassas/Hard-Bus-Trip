@@ -83,3 +83,35 @@ template <typename T>
 int PriorityQueue<T>::getSize() const {
     return size;
 }
+
+template <typename T>
+void PriorityQueue<T>::removeItem(T item) {
+    Node* temp = head;
+    Node* prev = nullptr;
+
+    while (temp != nullptr) {
+        if (temp->value == item) {
+            if (prev == nullptr) {
+                // Item is at the head
+                head = head->next;
+            } else {
+                // Item is in the middle or end
+                prev->next = temp->next;
+            }
+
+            delete temp;
+            size--;
+
+            if (prev == nullptr) {
+                // If we removed the head, update temp to new head
+                temp = head;
+            } else {
+                // Otherwise, continue from the next node
+                temp = prev->next;
+            }
+        } else {
+            prev = temp;
+            temp = temp->next;
+        }
+    }
+}

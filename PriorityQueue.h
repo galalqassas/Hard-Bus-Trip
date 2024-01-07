@@ -30,6 +30,7 @@ public:
     T peek();
     void display();
     int getSize() const;
+    void removeItem(T item);
 };
 
 
