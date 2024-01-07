@@ -122,17 +122,16 @@ void Company::generateOutputFile(const string &filename) {
             totalWaitTime += waitTime.getTotalMinutes();
             totalTripTime += tripTime.getTotalMinutes();
 
-            // Increment passenger type counters
             string type = p->getPassengerType();
             if (type == "NP") totalNP++;
             else if (type == "SP") totalSP++;
             else if (type == "WP") totalWP++;
 
-            // Check for auto-promoted passengers
+            // Check for auto-promoted passengers to not count them twice
             if (p->isAutoPromoted()) autoPromoted++;
 
-            outputFile << p->getFinishTime() << " " << p->getId() << " " << p->getArrivalTime() << " "
-                       << waitTime << " " << tripTime << "\n";
+            outputFile << p->getFinishTime() << " " << p->getId() << " "
+                        << p->getArrivalTime() << " " << waitTime << " " << tripTime << "\n";
         }
     }
 
@@ -152,14 +151,32 @@ void Company::generateOutputFile(const string &filename) {
     double totalBusyTime = 0, totalUtilization = 0;
 
     // Bus statistics
+
+
+    // Calculate total busy time and utilization for all buses
+    for (int i = 0; i < station0.getSize(); i++) {
+        Bus* b = station0.dequeue();
+        b->updateBusyTime(0); // instead of 0 it should be total trip time
+        totalUtilization += b->calculateUtilization();
+        station0.enqueue(b);
+    }
+
+    double avgBusyTime = totalBuses > 0 ? totalBusyTime / totalBuses : 0;
+    double avgUtilization = totalBuses > 0 ? totalUtilization / totalBuses * 100 : 0;
+
+    // Output passenger statistics
     outputFile << "passengers: " << totalPassengers << " [NP: " << totalNP
-                << ", SP: " << totalSP << ", WP: " << totalWP << "]\n";
+               << ", SP: " << totalSP << ", WP: " << totalWP << "]\n";
     outputFile << "passenger Avg Wait time= " << avgWaitTime << "\n";
     outputFile << "passenger Avg trip time = " << avgTripTime << "\n";
     outputFile << "Auto-promoted passengers: " << fixed << setprecision(2)
-                << autoPromotedPercentage << "%\n";
+               << autoPromotedPercentage << "%\n";
+
+    // Output bus statistics
     outputFile << "buses: " << totalBuses << " [WBus: "
-                << totalWBuses << ", MBus: " << totalMBuses << "]\n";
+               << totalWBuses << ", MBus: " << totalMBuses << "]\n";
+    outputFile << "Avg Busy time = " << fixed << setprecision(2) << avgBusyTime << "%\n";
+    outputFile << "Avg utilization = " << fixed << setprecision(2) << avgUtilization << "%\n";
 
     outputFile.close();
 }
