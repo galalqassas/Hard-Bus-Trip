@@ -120,16 +120,16 @@
 		<Unit filename="C:/Users/LENOVO/CLionProjects/Hard-Bus-Trip/LinkedList.h">
 			<Option target="easy_bus_trip_v2"/>
 		</Unit>
-		<Unit filename="C:/Users/LENOVO/CLionProjects/Hard-Bus-Trip/NpPassengerQueue.cpp">
-			<Option target="easy_bus_trip_v2"/>
-		</Unit>
-		<Unit filename="C:/Users/LENOVO/CLionProjects/Hard-Bus-Trip/NpPassengerQueue.h">
-			<Option target="easy_bus_trip_v2"/>
-		</Unit>
 		<Unit filename="C:/Users/LENOVO/CLionProjects/Hard-Bus-Trip/Passenger.cpp">
 			<Option target="easy_bus_trip_v2"/>
 		</Unit>
 		<Unit filename="C:/Users/LENOVO/CLionProjects/Hard-Bus-Trip/Passenger.h">
+			<Option target="easy_bus_trip_v2"/>
+		</Unit>
+		<Unit filename="C:/Users/LENOVO/CLionProjects/Hard-Bus-Trip/PassengerQueue.cpp">
+			<Option target="easy_bus_trip_v2"/>
+		</Unit>
+		<Unit filename="C:/Users/LENOVO/CLionProjects/Hard-Bus-Trip/PassengerQueue.h">
 			<Option target="easy_bus_trip_v2"/>
 		</Unit>
 		<Unit filename="C:/Users/LENOVO/CLionProjects/Hard-Bus-Trip/PriorityQueue.cpp">

@@ -138,24 +138,10 @@ CMakeFiles/easy_bus_trip_v2.dir/LinkedList.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/easy_bus_trip_v2.dir/LinkedList.cpp.s"
 	C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\LENOVO\CLionProjects\Hard-Bus-Trip\LinkedList.cpp -o CMakeFiles\easy_bus_trip_v2.dir\LinkedList.cpp.s
 
-CMakeFiles/easy_bus_trip_v2.dir/NpPassengerQueue.cpp.obj: CMakeFiles/easy_bus_trip_v2.dir/flags.make
-CMakeFiles/easy_bus_trip_v2.dir/NpPassengerQueue.cpp.obj: C:/Users/LENOVO/CLionProjects/Hard-Bus-Trip/NpPassengerQueue.cpp
-CMakeFiles/easy_bus_trip_v2.dir/NpPassengerQueue.cpp.obj: CMakeFiles/easy_bus_trip_v2.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\LENOVO\CLionProjects\Hard-Bus-Trip\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/easy_bus_trip_v2.dir/NpPassengerQueue.cpp.obj"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/easy_bus_trip_v2.dir/NpPassengerQueue.cpp.obj -MF CMakeFiles\easy_bus_trip_v2.dir\NpPassengerQueue.cpp.obj.d -o CMakeFiles\easy_bus_trip_v2.dir\NpPassengerQueue.cpp.obj -c C:\Users\LENOVO\CLionProjects\Hard-Bus-Trip\NpPassengerQueue.cpp
-
-CMakeFiles/easy_bus_trip_v2.dir/NpPassengerQueue.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/easy_bus_trip_v2.dir/NpPassengerQueue.cpp.i"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\LENOVO\CLionProjects\Hard-Bus-Trip\NpPassengerQueue.cpp > CMakeFiles\easy_bus_trip_v2.dir\NpPassengerQueue.cpp.i
-
-CMakeFiles/easy_bus_trip_v2.dir/NpPassengerQueue.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/easy_bus_trip_v2.dir/NpPassengerQueue.cpp.s"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\LENOVO\CLionProjects\Hard-Bus-Trip\NpPassengerQueue.cpp -o CMakeFiles\easy_bus_trip_v2.dir\NpPassengerQueue.cpp.s
-
 CMakeFiles/easy_bus_trip_v2.dir/Passenger.cpp.obj: CMakeFiles/easy_bus_trip_v2.dir/flags.make
 CMakeFiles/easy_bus_trip_v2.dir/Passenger.cpp.obj: C:/Users/LENOVO/CLionProjects/Hard-Bus-Trip/Passenger.cpp
 CMakeFiles/easy_bus_trip_v2.dir/Passenger.cpp.obj: CMakeFiles/easy_bus_trip_v2.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\LENOVO\CLionProjects\Hard-Bus-Trip\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/easy_bus_trip_v2.dir/Passenger.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\LENOVO\CLionProjects\Hard-Bus-Trip\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/easy_bus_trip_v2.dir/Passenger.cpp.obj"
 	C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/easy_bus_trip_v2.dir/Passenger.cpp.obj -MF CMakeFiles\easy_bus_trip_v2.dir\Passenger.cpp.obj.d -o CMakeFiles\easy_bus_trip_v2.dir\Passenger.cpp.obj -c C:\Users\LENOVO\CLionProjects\Hard-Bus-Trip\Passenger.cpp
 
 CMakeFiles/easy_bus_trip_v2.dir/Passenger.cpp.i: cmake_force
@@ -169,7 +155,7 @@ CMakeFiles/easy_bus_trip_v2.dir/Passenger.cpp.s: cmake_force
 CMakeFiles/easy_bus_trip_v2.dir/PriorityQueue.cpp.obj: CMakeFiles/easy_bus_trip_v2.dir/flags.make
 CMakeFiles/easy_bus_trip_v2.dir/PriorityQueue.cpp.obj: C:/Users/LENOVO/CLionProjects/Hard-Bus-Trip/PriorityQueue.cpp
 CMakeFiles/easy_bus_trip_v2.dir/PriorityQueue.cpp.obj: CMakeFiles/easy_bus_trip_v2.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\LENOVO\CLionProjects\Hard-Bus-Trip\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/easy_bus_trip_v2.dir/PriorityQueue.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\LENOVO\CLionProjects\Hard-Bus-Trip\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/easy_bus_trip_v2.dir/PriorityQueue.cpp.obj"
 	C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/easy_bus_trip_v2.dir/PriorityQueue.cpp.obj -MF CMakeFiles\easy_bus_trip_v2.dir\PriorityQueue.cpp.obj.d -o CMakeFiles\easy_bus_trip_v2.dir\PriorityQueue.cpp.obj -c C:\Users\LENOVO\CLionProjects\Hard-Bus-Trip\PriorityQueue.cpp
 
 CMakeFiles/easy_bus_trip_v2.dir/PriorityQueue.cpp.i: cmake_force
@@ -183,7 +169,7 @@ CMakeFiles/easy_bus_trip_v2.dir/PriorityQueue.cpp.s: cmake_force
 CMakeFiles/easy_bus_trip_v2.dir/Queue.cpp.obj: CMakeFiles/easy_bus_trip_v2.dir/flags.make
 CMakeFiles/easy_bus_trip_v2.dir/Queue.cpp.obj: C:/Users/LENOVO/CLionProjects/Hard-Bus-Trip/Queue.cpp
 CMakeFiles/easy_bus_trip_v2.dir/Queue.cpp.obj: CMakeFiles/easy_bus_trip_v2.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\LENOVO\CLionProjects\Hard-Bus-Trip\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/easy_bus_trip_v2.dir/Queue.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\LENOVO\CLionProjects\Hard-Bus-Trip\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/easy_bus_trip_v2.dir/Queue.cpp.obj"
 	C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/easy_bus_trip_v2.dir/Queue.cpp.obj -MF CMakeFiles\easy_bus_trip_v2.dir\Queue.cpp.obj.d -o CMakeFiles\easy_bus_trip_v2.dir\Queue.cpp.obj -c C:\Users\LENOVO\CLionProjects\Hard-Bus-Trip\Queue.cpp
 
 CMakeFiles/easy_bus_trip_v2.dir/Queue.cpp.i: cmake_force
@@ -197,7 +183,7 @@ CMakeFiles/easy_bus_trip_v2.dir/Queue.cpp.s: cmake_force
 CMakeFiles/easy_bus_trip_v2.dir/Station.cpp.obj: CMakeFiles/easy_bus_trip_v2.dir/flags.make
 CMakeFiles/easy_bus_trip_v2.dir/Station.cpp.obj: C:/Users/LENOVO/CLionProjects/Hard-Bus-Trip/Station.cpp
 CMakeFiles/easy_bus_trip_v2.dir/Station.cpp.obj: CMakeFiles/easy_bus_trip_v2.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\LENOVO\CLionProjects\Hard-Bus-Trip\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/easy_bus_trip_v2.dir/Station.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\LENOVO\CLionProjects\Hard-Bus-Trip\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/easy_bus_trip_v2.dir/Station.cpp.obj"
 	C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/easy_bus_trip_v2.dir/Station.cpp.obj -MF CMakeFiles\easy_bus_trip_v2.dir\Station.cpp.obj.d -o CMakeFiles\easy_bus_trip_v2.dir\Station.cpp.obj -c C:\Users\LENOVO\CLionProjects\Hard-Bus-Trip\Station.cpp
 
 CMakeFiles/easy_bus_trip_v2.dir/Station.cpp.i: cmake_force
@@ -211,7 +197,7 @@ CMakeFiles/easy_bus_trip_v2.dir/Station.cpp.s: cmake_force
 CMakeFiles/easy_bus_trip_v2.dir/Time.cpp.obj: CMakeFiles/easy_bus_trip_v2.dir/flags.make
 CMakeFiles/easy_bus_trip_v2.dir/Time.cpp.obj: C:/Users/LENOVO/CLionProjects/Hard-Bus-Trip/Time.cpp
 CMakeFiles/easy_bus_trip_v2.dir/Time.cpp.obj: CMakeFiles/easy_bus_trip_v2.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\LENOVO\CLionProjects\Hard-Bus-Trip\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/easy_bus_trip_v2.dir/Time.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\LENOVO\CLionProjects\Hard-Bus-Trip\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/easy_bus_trip_v2.dir/Time.cpp.obj"
 	C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/easy_bus_trip_v2.dir/Time.cpp.obj -MF CMakeFiles\easy_bus_trip_v2.dir\Time.cpp.obj.d -o CMakeFiles\easy_bus_trip_v2.dir\Time.cpp.obj -c C:\Users\LENOVO\CLionProjects\Hard-Bus-Trip\Time.cpp
 
 CMakeFiles/easy_bus_trip_v2.dir/Time.cpp.i: cmake_force
@@ -225,7 +211,7 @@ CMakeFiles/easy_bus_trip_v2.dir/Time.cpp.s: cmake_force
 CMakeFiles/easy_bus_trip_v2.dir/Bus.cpp.obj: CMakeFiles/easy_bus_trip_v2.dir/flags.make
 CMakeFiles/easy_bus_trip_v2.dir/Bus.cpp.obj: C:/Users/LENOVO/CLionProjects/Hard-Bus-Trip/Bus.cpp
 CMakeFiles/easy_bus_trip_v2.dir/Bus.cpp.obj: CMakeFiles/easy_bus_trip_v2.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\LENOVO\CLionProjects\Hard-Bus-Trip\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/easy_bus_trip_v2.dir/Bus.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\LENOVO\CLionProjects\Hard-Bus-Trip\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/easy_bus_trip_v2.dir/Bus.cpp.obj"
 	C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/easy_bus_trip_v2.dir/Bus.cpp.obj -MF CMakeFiles\easy_bus_trip_v2.dir\Bus.cpp.obj.d -o CMakeFiles\easy_bus_trip_v2.dir\Bus.cpp.obj -c C:\Users\LENOVO\CLionProjects\Hard-Bus-Trip\Bus.cpp
 
 CMakeFiles/easy_bus_trip_v2.dir/Bus.cpp.i: cmake_force
@@ -239,7 +225,7 @@ CMakeFiles/easy_bus_trip_v2.dir/Bus.cpp.s: cmake_force
 CMakeFiles/easy_bus_trip_v2.dir/ArrivalEvent.cpp.obj: CMakeFiles/easy_bus_trip_v2.dir/flags.make
 CMakeFiles/easy_bus_trip_v2.dir/ArrivalEvent.cpp.obj: C:/Users/LENOVO/CLionProjects/Hard-Bus-Trip/ArrivalEvent.cpp
 CMakeFiles/easy_bus_trip_v2.dir/ArrivalEvent.cpp.obj: CMakeFiles/easy_bus_trip_v2.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\LENOVO\CLionProjects\Hard-Bus-Trip\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/easy_bus_trip_v2.dir/ArrivalEvent.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\LENOVO\CLionProjects\Hard-Bus-Trip\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/easy_bus_trip_v2.dir/ArrivalEvent.cpp.obj"
 	C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/easy_bus_trip_v2.dir/ArrivalEvent.cpp.obj -MF CMakeFiles\easy_bus_trip_v2.dir\ArrivalEvent.cpp.obj.d -o CMakeFiles\easy_bus_trip_v2.dir\ArrivalEvent.cpp.obj -c C:\Users\LENOVO\CLionProjects\Hard-Bus-Trip\ArrivalEvent.cpp
 
 CMakeFiles/easy_bus_trip_v2.dir/ArrivalEvent.cpp.i: cmake_force
@@ -250,6 +236,20 @@ CMakeFiles/easy_bus_trip_v2.dir/ArrivalEvent.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/easy_bus_trip_v2.dir/ArrivalEvent.cpp.s"
 	C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\LENOVO\CLionProjects\Hard-Bus-Trip\ArrivalEvent.cpp -o CMakeFiles\easy_bus_trip_v2.dir\ArrivalEvent.cpp.s
 
+CMakeFiles/easy_bus_trip_v2.dir/PassengerQueue.cpp.obj: CMakeFiles/easy_bus_trip_v2.dir/flags.make
+CMakeFiles/easy_bus_trip_v2.dir/PassengerQueue.cpp.obj: C:/Users/LENOVO/CLionProjects/Hard-Bus-Trip/PassengerQueue.cpp
+CMakeFiles/easy_bus_trip_v2.dir/PassengerQueue.cpp.obj: CMakeFiles/easy_bus_trip_v2.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\LENOVO\CLionProjects\Hard-Bus-Trip\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/easy_bus_trip_v2.dir/PassengerQueue.cpp.obj"
+	C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/easy_bus_trip_v2.dir/PassengerQueue.cpp.obj -MF CMakeFiles\easy_bus_trip_v2.dir\PassengerQueue.cpp.obj.d -o CMakeFiles\easy_bus_trip_v2.dir\PassengerQueue.cpp.obj -c C:\Users\LENOVO\CLionProjects\Hard-Bus-Trip\PassengerQueue.cpp
+
+CMakeFiles/easy_bus_trip_v2.dir/PassengerQueue.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/easy_bus_trip_v2.dir/PassengerQueue.cpp.i"
+	C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\LENOVO\CLionProjects\Hard-Bus-Trip\PassengerQueue.cpp > CMakeFiles\easy_bus_trip_v2.dir\PassengerQueue.cpp.i
+
+CMakeFiles/easy_bus_trip_v2.dir/PassengerQueue.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/easy_bus_trip_v2.dir/PassengerQueue.cpp.s"
+	C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\LENOVO\CLionProjects\Hard-Bus-Trip\PassengerQueue.cpp -o CMakeFiles\easy_bus_trip_v2.dir\PassengerQueue.cpp.s
+
 # Object files for target easy_bus_trip_v2
 easy_bus_trip_v2_OBJECTS = \
 "CMakeFiles/easy_bus_trip_v2.dir/main.cpp.obj" \
@@ -257,14 +257,14 @@ easy_bus_trip_v2_OBJECTS = \
 "CMakeFiles/easy_bus_trip_v2.dir/Event.cpp.obj" \
 "CMakeFiles/easy_bus_trip_v2.dir/LeaveEvent.cpp.obj" \
 "CMakeFiles/easy_bus_trip_v2.dir/LinkedList.cpp.obj" \
-"CMakeFiles/easy_bus_trip_v2.dir/NpPassengerQueue.cpp.obj" \
 "CMakeFiles/easy_bus_trip_v2.dir/Passenger.cpp.obj" \
 "CMakeFiles/easy_bus_trip_v2.dir/PriorityQueue.cpp.obj" \
 "CMakeFiles/easy_bus_trip_v2.dir/Queue.cpp.obj" \
 "CMakeFiles/easy_bus_trip_v2.dir/Station.cpp.obj" \
 "CMakeFiles/easy_bus_trip_v2.dir/Time.cpp.obj" \
 "CMakeFiles/easy_bus_trip_v2.dir/Bus.cpp.obj" \
-"CMakeFiles/easy_bus_trip_v2.dir/ArrivalEvent.cpp.obj"
+"CMakeFiles/easy_bus_trip_v2.dir/ArrivalEvent.cpp.obj" \
+"CMakeFiles/easy_bus_trip_v2.dir/PassengerQueue.cpp.obj"
 
 # External object files for target easy_bus_trip_v2
 easy_bus_trip_v2_EXTERNAL_OBJECTS =
@@ -274,7 +274,6 @@ easy_bus_trip_v2.exe: CMakeFiles/easy_bus_trip_v2.dir/Company.cpp.obj
 easy_bus_trip_v2.exe: CMakeFiles/easy_bus_trip_v2.dir/Event.cpp.obj
 easy_bus_trip_v2.exe: CMakeFiles/easy_bus_trip_v2.dir/LeaveEvent.cpp.obj
 easy_bus_trip_v2.exe: CMakeFiles/easy_bus_trip_v2.dir/LinkedList.cpp.obj
-easy_bus_trip_v2.exe: CMakeFiles/easy_bus_trip_v2.dir/NpPassengerQueue.cpp.obj
 easy_bus_trip_v2.exe: CMakeFiles/easy_bus_trip_v2.dir/Passenger.cpp.obj
 easy_bus_trip_v2.exe: CMakeFiles/easy_bus_trip_v2.dir/PriorityQueue.cpp.obj
 easy_bus_trip_v2.exe: CMakeFiles/easy_bus_trip_v2.dir/Queue.cpp.obj
@@ -282,6 +281,7 @@ easy_bus_trip_v2.exe: CMakeFiles/easy_bus_trip_v2.dir/Station.cpp.obj
 easy_bus_trip_v2.exe: CMakeFiles/easy_bus_trip_v2.dir/Time.cpp.obj
 easy_bus_trip_v2.exe: CMakeFiles/easy_bus_trip_v2.dir/Bus.cpp.obj
 easy_bus_trip_v2.exe: CMakeFiles/easy_bus_trip_v2.dir/ArrivalEvent.cpp.obj
+easy_bus_trip_v2.exe: CMakeFiles/easy_bus_trip_v2.dir/PassengerQueue.cpp.obj
 easy_bus_trip_v2.exe: CMakeFiles/easy_bus_trip_v2.dir/build.make
 easy_bus_trip_v2.exe: CMakeFiles/easy_bus_trip_v2.dir/linkLibs.rsp
 easy_bus_trip_v2.exe: CMakeFiles/easy_bus_trip_v2.dir/objects1.rsp

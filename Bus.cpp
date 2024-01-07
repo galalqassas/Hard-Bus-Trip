@@ -72,7 +72,10 @@ int Bus::getSPPriority(string sp_type) {
 
 void Bus::remove_passenger(Passenger *passenger) {
     int priority = abs(passenger->getEndStation() - passenger->getStartStation());
-    passengers.dequeuePQ();
+    bool flag=passenger->getEndStation()==isCurrentStation(passenger);
+    if(flag) {
+        passengers.dequeuePQ();
+    }
     Num_of_trips--;
 }
 

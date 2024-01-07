@@ -241,14 +241,14 @@ void Company::releaseBuses(Queue<Bus *> station0Buses){
 
 }
 
-void Company:: simulation(Company c,Station *s)
+void Company:: simulation(Station *s)
 {
     //I have to add a loop in which i start to read the events
     // The input file is read only once
     //Time to start the program
     Time currenttime;
     currenttime.setTime(4,1);
-    c.setCurrentTime(currenttime);
+    this->setCurrentTime(currenttime);
     //Create events
     LeaveEvent *le = new LeaveEvent();
     ArrivalEvent *ae = new ArrivalEvent();
@@ -277,10 +277,14 @@ void Company:: simulation(Company c,Station *s)
     //Loop over every station
     int numOfStation=eventParameters.num_stations;
     int numberOfAllBuses=eventParameters.num_WBuses+eventParameters.num_MBuses;
-    for (int i = 0; i < numOfStation; ++i) {
+    int numberOfPassengerToRelease=60/eventParameters.get_on_off_time;
+    Passenger* passenger=new Passenger();
+    for (int i = 0; i < numOfStation; i++) {
         for (int j = 0; j < numberOfAllBuses; j++) {
             Station currentStation = stations[i];
-            currentStation.Execute1MinuteStation(currentStation, station0Buses);
+            Bus *tempBus=station0Buses.dequeue();
+            currentStation.Execute1MinuteStation(currentStation,tempBus,passenger,numberOfPassengerToRelease);
+
         }
     }
     //There is a print function here to print everything every 1 minute

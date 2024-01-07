@@ -57,7 +57,7 @@ public:
     void busFromWaitingToMoving(Bus *bus,Parameters  &eventParameters,Station currentStation);
     Station getStation(int stationNumber);
     void incrementTime(int increment = 1);
-    void simulation(Company c,Station *s);
+    void simulation(Station *s);
     void releaseBuses(Queue<Bus *> station0Buses);
 
     void setCurrentTime(const Time &currentTime);
