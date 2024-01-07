@@ -77,7 +77,7 @@ public:
 
     void removePassengerFromPQ(PriorityQueue<Passenger *> &pq, int id);
 
-    void Execute1MinuteStation(Station s,Bus *tempBus,Passenger *passenger,int numberOfPassengerToRelease);
+    void removePassengersInOneMinute(Station s, Bus *tempBus, Passenger *passenger, int numberOfPassengerToRelease);
 
     void onBoardBuses(Bus *bus,Passenger *passenger,int numberOfPassengerToRelease);//Responsible for removing the passengers from the bus
 };
