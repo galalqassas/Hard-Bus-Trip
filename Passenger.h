@@ -65,6 +65,8 @@ public:
     Time calculateTripTime() const;
     bool isForward();
     bool isAutoPromoted() const; // Method to check auto-promotion
+
+
 };
 
 

@@ -184,97 +184,43 @@ void Station::setWaitingWBusesBackward(const Queue<Bus *> &waitingWBusesBackward
     Station::waitingWBusesBackward = waitingWBusesBackward;
 }
 
+
 void Station::removePassenger(int id) {
-    // Lambda function to search through a queue and remove a passenger with a given ID.
-    auto removePassengerFromQueue = [&](Queue<Passenger*> &queue, void (Station::*removalFunction)(Passenger*)) {
-        int size = queue.getSize();
-        for (int i = 0; i < size; ++i) {
-            Passenger* current = queue.dequeue();
-            if (current->getId() == id) {
-                (this->*removalFunction)(current);
-                break; // Stop searching after finding the passenger
-            } else {
-                queue.enqueue(current); // Re-enqueue the passenger if it's not the one to remove
-            }
-        }
-    };
-
-    // Iterate over each queue and remove the passenger if found.
-    removePassengerFromQueue(waitingWcPForward, &Station::removePassengerWp);
-    removePassengerFromQueue(waitingWcPBackward, &Station::removePassengerWp);
-    removePassengerFromQueue(waitingNPForward, &Station::removePassengerNp);
-    removePassengerFromQueue(waitingNPBackward, &Station::removePassengerNp);
-
-
+    removePassengerFromQueue(waitingWcPForward, id);
+    removePassengerFromQueue(waitingWcPBackward, id);
+    removePassengerFromQueue(waitingNPForward, id);
+    removePassengerFromQueue(waitingNPBackward, id);
+    removePassengerFromPQ(waitingSPBackward, id);
+    removePassengerFromPQ(waitingSPForward, id);
 }
 
 
-/*
-void Station::addPassenger(Passenger passenger, string sp_type) {
-    if (passenger.getStartStation() != stationNumber) return;
-    if (passenger.getStartStation() ==  stationNumber){
-         if(passenger.getPassengerType() == "wp"){
-            if (isForward(passenger))
-                waitingWcPForward.enqueue(passenger);
-            else
-               waitingWcPBackward.enqueue(passenger);
-        } else if (passenger.getPassengerType() == "np"){
-            if (passenger.getEndStation() > passenger.getStartStation())
-                waitingNPForward.enqueue(passenger);
-            else
-                waitingNPBackward.enqueue(passenger);
+void Station::removePassengerFromQueue(Queue<Passenger *> &q, int id) {
+    Passenger* temp = nullptr; // Temporary pointer to find the right passenger
+    // Loop through the queue to find the passenger with the given id
+    for (int i = 0; i < q.getSize(); ++i) {
+        temp = q.dequeue(); // Take the front item
+        if (temp->getId() != id) {
+            q.enqueue(temp); // Put it back if it's not the one we're looking for
+        } else {
+            // Found the right passenger, don't enqueue it back
+            continue;
         }
-        if (passenger.getPassengerType() == "sp" && (sp_type == "aged" || sp_type == "pod" || sp_type == "pregnant")){
-            int priority = getSPPriority(sp_type);
-            if (passenger.getEndStation() > passenger.getStartStation())
-                waitingSPForward.enqueue(passenger, priority);
-            else
-                waitingSPBackward.enqueuePQ(passenger, priority);
-        } else return;
     }
 }
 
-bool Station::isPassengerForward(const Passenger &passenger) const {
-    return passenger.getEndStation() > passenger.getStartStation();
-}
-
-int Station::getSPPriority(string sp_type) {
-    if (sp_type == "Aged"){
-        return 1;
-    } else if (sp_type == "POD"){
-        return 2;
-    } else if (sp_type == "pregnant"){
-        return 3;
-    } else {
-        return 0;
-    }
-}
-
-void Station::removePassenger(Passenger passenger, string sp_type) {
-    if (passenger.getEndStation() != stationNumber) return;
-    if (passenger.getEndStation() ==  stationNumber){
-        if(passenger.getPassengerType() == "wp") {
-            if (passenger.getEndStation() > passenger.getStartStation())
-                waitingWcPForward.dequeue();
-            else
-                waitingWcPBackward.dequeue();
-        } else if (passenger.getPassengerType() == "np"){
-            if (passenger.getEndStation() > passenger.getStartStation())
-                waitingNPForward.dequeue();
-            else
-                waitingNPBackward.dequeue();
+void Station::removePassengerFromPQ(PriorityQueue<Passenger *> &pq, int id) {
+    Passenger* temp = nullptr; // Temporary pointer to find the right passenger
+    int tempPriority = 0;
+    // Similar approach as with the regular queue, but keeping track of priorities as well
+    for (int i = 0; i < pq.getSize(); ++i) {
+        temp = pq.dequeuePQ(); // Take the front item
+        tempPriority = getSPPriority(temp->getSpecialType());
+        if (temp->getId() != id) {
+            pq.enqueuePQ(temp, tempPriority);
+        } else {
+            continue;
         }
-        if (passenger.getPassengerType() == "sp" && (sp_type == "aged" || sp_type == "pod" || sp_type == "pregnant")){
-            if (passenger.getPassengerType() == "sp"
-            && (sp_type == "aged" || sp_type == "pod"
-            || sp_type == "pregnant")){
-                int priority = getSPPriority(sp_type);
-                if (passenger.getEndStation() > passenger.getStartStation())
-                    waitingSPForward.dequeue();
-                else
-                    waitingSPBackward.dequeuePQ();
-            } else return;
-        } else return;
     }
 }
-*/
+

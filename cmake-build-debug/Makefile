@@ -272,30 +272,6 @@ LinkedList.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\easy_bus_trip_v2.dir\build.make CMakeFiles/easy_bus_trip_v2.dir/LinkedList.cpp.s
 .PHONY : LinkedList.cpp.s
 
-NpPassengerQueue.obj: NpPassengerQueue.cpp.obj
-.PHONY : NpPassengerQueue.obj
-
-# target to build an object file
-NpPassengerQueue.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\easy_bus_trip_v2.dir\build.make CMakeFiles/easy_bus_trip_v2.dir/NpPassengerQueue.cpp.obj
-.PHONY : NpPassengerQueue.cpp.obj
-
-NpPassengerQueue.i: NpPassengerQueue.cpp.i
-.PHONY : NpPassengerQueue.i
-
-# target to preprocess a source file
-NpPassengerQueue.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\easy_bus_trip_v2.dir\build.make CMakeFiles/easy_bus_trip_v2.dir/NpPassengerQueue.cpp.i
-.PHONY : NpPassengerQueue.cpp.i
-
-NpPassengerQueue.s: NpPassengerQueue.cpp.s
-.PHONY : NpPassengerQueue.s
-
-# target to generate assembly for a file
-NpPassengerQueue.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\easy_bus_trip_v2.dir\build.make CMakeFiles/easy_bus_trip_v2.dir/NpPassengerQueue.cpp.s
-.PHONY : NpPassengerQueue.cpp.s
-
 Passenger.obj: Passenger.cpp.obj
 .PHONY : Passenger.obj
 
@@ -319,6 +295,30 @@ Passenger.s: Passenger.cpp.s
 Passenger.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\easy_bus_trip_v2.dir\build.make CMakeFiles/easy_bus_trip_v2.dir/Passenger.cpp.s
 .PHONY : Passenger.cpp.s
+
+PassengerQueue.obj: PassengerQueue.cpp.obj
+.PHONY : PassengerQueue.obj
+
+# target to build an object file
+PassengerQueue.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\easy_bus_trip_v2.dir\build.make CMakeFiles/easy_bus_trip_v2.dir/PassengerQueue.cpp.obj
+.PHONY : PassengerQueue.cpp.obj
+
+PassengerQueue.i: PassengerQueue.cpp.i
+.PHONY : PassengerQueue.i
+
+# target to preprocess a source file
+PassengerQueue.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\easy_bus_trip_v2.dir\build.make CMakeFiles/easy_bus_trip_v2.dir/PassengerQueue.cpp.i
+.PHONY : PassengerQueue.cpp.i
+
+PassengerQueue.s: PassengerQueue.cpp.s
+.PHONY : PassengerQueue.s
+
+# target to generate assembly for a file
+PassengerQueue.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\easy_bus_trip_v2.dir\build.make CMakeFiles/easy_bus_trip_v2.dir/PassengerQueue.cpp.s
+.PHONY : PassengerQueue.cpp.s
 
 PriorityQueue.obj: PriorityQueue.cpp.obj
 .PHONY : PriorityQueue.obj
@@ -467,12 +467,12 @@ help:
 	@echo ... LinkedList.obj
 	@echo ... LinkedList.i
 	@echo ... LinkedList.s
-	@echo ... NpPassengerQueue.obj
-	@echo ... NpPassengerQueue.i
-	@echo ... NpPassengerQueue.s
 	@echo ... Passenger.obj
 	@echo ... Passenger.i
 	@echo ... Passenger.s
+	@echo ... PassengerQueue.obj
+	@echo ... PassengerQueue.i
+	@echo ... PassengerQueue.s
 	@echo ... PriorityQueue.obj
 	@echo ... PriorityQueue.i
 	@echo ... PriorityQueue.s

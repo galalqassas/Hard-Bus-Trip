@@ -118,16 +118,16 @@
 		<Unit filename="C:/Users/PC/CLionProjects/Hard-Bus-Trip-v2/LinkedList.h">
 			<Option target="easy_bus_trip_v2"/>
 		</Unit>
-		<Unit filename="C:/Users/PC/CLionProjects/Hard-Bus-Trip-v2/NpPassengerQueue.cpp">
-			<Option target="easy_bus_trip_v2"/>
-		</Unit>
-		<Unit filename="C:/Users/PC/CLionProjects/Hard-Bus-Trip-v2/NpPassengerQueue.h">
-			<Option target="easy_bus_trip_v2"/>
-		</Unit>
 		<Unit filename="C:/Users/PC/CLionProjects/Hard-Bus-Trip-v2/Passenger.cpp">
 			<Option target="easy_bus_trip_v2"/>
 		</Unit>
 		<Unit filename="C:/Users/PC/CLionProjects/Hard-Bus-Trip-v2/Passenger.h">
+			<Option target="easy_bus_trip_v2"/>
+		</Unit>
+		<Unit filename="C:/Users/PC/CLionProjects/Hard-Bus-Trip-v2/PassengerQueue.cpp">
+			<Option target="easy_bus_trip_v2"/>
+		</Unit>
+		<Unit filename="C:/Users/PC/CLionProjects/Hard-Bus-Trip-v2/PassengerQueue.h">
 			<Option target="easy_bus_trip_v2"/>
 		</Unit>
 		<Unit filename="C:/Users/PC/CLionProjects/Hard-Bus-Trip-v2/PriorityQueue.cpp">

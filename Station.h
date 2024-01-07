@@ -66,11 +66,15 @@ public:
     void addPassengerNp(Passenger* passenger);
 
 
-    void removePassenger(int id);
     void addBusForward(Bus* bus);
     void addBusBackward(Bus* bus);
 
     void promotePassenger(Passenger* passenger);
+
+    void removePassenger(int id);
+    void removePassengerFromQueue(Queue<Passenger *> &q, int id);
+
+    void removePassengerFromPQ(PriorityQueue<Passenger *> &pq, int id);
 };
 
 

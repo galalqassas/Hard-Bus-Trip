@@ -31,7 +31,6 @@ public:
     T peek();
     void display();
     void removeItem(T item);
-
 };
 
 
