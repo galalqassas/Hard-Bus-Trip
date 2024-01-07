@@ -278,3 +278,12 @@ void Station::removePassenger(Passenger passenger, string sp_type) {
     }
 }
 */
+
+void Station::Execute1MinuteStation(Station s, Queue<Bus *> station0Buses) {
+
+    onBoardBuses(station0Buses);
+}
+
+void Station::onBoardBuses(Queue<Bus *> station0Buses) {
+
+}

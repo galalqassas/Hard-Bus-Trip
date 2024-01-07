@@ -10,6 +10,9 @@
 #include "Queue.h"
 #include "Passenger.h"
 #include "Event.h"
+#include "ArrivalEvent.h"
+#include "LeaveEvent.h"
+
 //#include "Station.h"
 class Passenger;
 using namespace std;
@@ -43,16 +46,21 @@ private:
     Queue<Bus *> mBusMovingBackward;
     Queue<Bus *> wBusMovingForward;
     Queue<Bus *> wBusMovingBackward;
+    Queue<Bus *> station0Buses;
 public:
     Company();
     Time getCurrentTime() const;
-    void read_file(const char *filename, Parameters &eventParameters);
+    void read_file(const char *filename, Parameters &eventParameters,ArrivalEvent *ae,LeaveEvent *le);
     void generateOutputFile(const string& filename);
     void addBusToCheckup(Bus *bus,Parameters&eventParameters);
     void busFromMovingToWaiting(Bus *bus,Parameters &eventParameters);
     void busFromWaitingToMoving(Bus *bus,Parameters  &eventParameters,Station currentStation);
     Station getStation(int stationNumber);
     void incrementTime(int increment = 1);
+    void simulation(Company c,Station *s);
+    void releaseBuses(Queue<Bus *> station0Buses);
+
+    void setCurrentTime(const Time &currentTime);
 };
 
 

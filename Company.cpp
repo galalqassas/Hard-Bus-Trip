@@ -17,7 +17,7 @@ using namespace std;
 template
 class Queue<Event *>;
 
-void Company::read_file(const char *filename, Parameters &eventParameters) {
+void Company::read_file(const char *filename, Parameters &eventParameters,ArrivalEvent *ae,LeaveEvent *le) {
     ifstream file(filename);
     if (!file.is_open()) {
         cerr << "Error opening file: " << filename << endl;
@@ -50,7 +50,6 @@ void Company::read_file(const char *filename, Parameters &eventParameters) {
         char eventType;
         file >> eventType;
         if (eventType == 'A') {
-            ArrivalEvent *ae = new ArrivalEvent();
             string type;
             string atime;
             int id, start, end;
@@ -79,7 +78,6 @@ void Company::read_file(const char *filename, Parameters &eventParameters) {
                  << endl;
             eventQueue.enqueue(ae);
         } else if (eventType == 'L') {
-            LeaveEvent *le = new LeaveEvent();
             string ltime;
             file >> ltime;
             short hour = stoi(ltime.substr(0, 2));
@@ -213,11 +211,71 @@ Time Company::getCurrentTime() const {
     return currentTime;
 }
 
+void Company::setCurrentTime(const Time &currentTime) {
+    Company::currentTime = currentTime;
+}
+
+
 void Company::incrementTime(int increment) {
     currentTime = currentTime + Time(0, increment);
+}
+
+void Company::releaseBuses(Queue<Bus *> station0Buses){
+
+}
+
+void Company:: simulation(Company c,Station *s)
+{
+    //I have to add a loop in which i start to read the events
+    // The input file is read only once
+    //Time to start the program
+    Time currenttime;
+    currenttime.setTime(4,1);
+    c.setCurrentTime(currenttime);
+    //Create events
+    LeaveEvent *le = new LeaveEvent();
+    ArrivalEvent *ae = new ArrivalEvent();
+    //File name
+    const char* filename = "C:\\Users\\LENOVO\\CLionProjects\\Hard-Bus-Trip\\random_file.txt";
+    //One of the most important things
+    Parameters eventParameters;
+    //Read from the function
+    read_file(filename,eventParameters,ae,le);
+    //Add function that is resposible to execute event at this minute
+
+    //Create MBus
+    for(int i=0 ; i<eventParameters.num_MBuses ; i++){
+        Bus* newBus = new Bus("MB", eventParameters.capacity_MBus);
+        station0Buses.enqueue(newBus);
+    }
+    //Create WBus
+    for(int i=0 ; i<eventParameters.num_WBuses ; i++){
+        Bus* newBus = new Bus("WB", eventParameters.capacity_MBus);
+        station0Buses.enqueue(newBus);
+    }
+    //Release buses from station 0
+
+    //Check to moving
+
+    //Loop over every station
+    int numOfStation=eventParameters.num_stations;
+    int numberOfAllBuses=eventParameters.num_WBuses+eventParameters.num_MBuses;
+    for (int i = 0; i < numOfStation; ++i) {
+        for (int j = 0; j < numberOfAllBuses; j++) {
+            Station currentStation = stations[i];
+            currentStation.Execute1MinuteStation(currentStation, station0Buses);
+        }
+    }
+    //There is a print function here to print everything every 1 minute
+    //Increment minute by one
+
+
+
+
 }
 
 Company::Company() {
     Time t;
     currentTime = t;
 }
+

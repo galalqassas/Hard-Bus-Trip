@@ -64,6 +64,13 @@ public:
     void addPassengerWp(Passenger* passenger);
     void addPassengerSp(Passenger* passenger, string type);
     void addPassengerNp(Passenger* passenger);
+    //To release passengers i have to release them within 1 minute->60/get_on_of_time -> to know how many passenger i can release at 1 minute.
+    //If there is a passenger that want to go out at this station but the time is exeeded i can not let him to go out
+    //After realising the passenger i have a lot of decisions, what is my current station?(if i am in station s i have to check if the bus will go to checkup)
+    //This will be done over all the buses and when i drop buses i have to add them into a temp queue to rejoin them to the original queue
+    //Promotion
+    //boarding->take each bus and start to board people i have to do this for within 1 minute or the capacity is full or there is no waiting passengers
+    //Add function onboard1minutestation-> 1-onboard buses(function)
 
 
     void removePassenger(int id);
@@ -71,6 +78,9 @@ public:
     void addBusBackward(Bus* bus);
 
     void promotePassenger(Passenger* passenger);
+
+    void Execute1MinuteStation(Station s,Queue<Bus *> station0Buses);
+    void onBoardBuses(Queue<Bus *> station0Buses);//Resposible for removing the passengers from the bus
 };
 
 
