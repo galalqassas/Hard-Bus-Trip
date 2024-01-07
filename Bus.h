@@ -15,6 +15,11 @@ using namespace std;
 
 class Bus {
 private:
+
+
+
+private:
+    Time busCurrenTime;
     string busType;  // "WB" for Wheelchair Bus, "MB" for Mixed Bus
     int busCapacity;
     int Num_of_trips;
@@ -37,7 +42,7 @@ public:
     void setBusType(string bt);
     void setBusCapacity(int bc);
     string getBusType() const;
-    int getBusCapacity() const;
+    const int getBusCapacity() const;
     int getNumOfTrips() const;
     void setNumOfTrips(int numOfTrips);
     int getPassengerNumber() const;
@@ -59,6 +64,9 @@ public:
     int getDirection() const;
     void setDirection(int direction);
     bool isBusForward();
+    Time getBusCurrenTime() const;
+
+    void setBusCurrenTime(int busCurrenTime);
 
     // New methods for busy time and utilization
     void updateBusyTime(int tripTime);

@@ -23,7 +23,7 @@ string Bus::getBusType() const {
     return busType;
 }
 
-int Bus::getBusCapacity() const {
+const int Bus::getBusCapacity() const {
     return busCapacity;
 }
 
@@ -72,10 +72,9 @@ int Bus::getSPPriority(string sp_type) {
 
 void Bus::remove_passenger(Passenger *passenger) {
     int priority = abs(passenger->getEndStation() - passenger->getStartStation());
-    bool flag=passenger->getEndStation()==isCurrentStation(passenger);
-    if(flag) {
-        passengers.dequeuePQ();
-    }
+
+    passengers.dequeuePQ();
+
     Num_of_trips--;
 }
 
@@ -124,5 +123,13 @@ void Bus::updateBusyTime(int tripTime) {
 double Bus::calculateUtilization() const {
     if (totalBusyTime == 0) return 0;
     return static_cast<double>(totalCapacityTime) / (totalBusyTime * busCapacity) * 100;
+}
+
+Time Bus::getBusCurrenTime() const {
+    return busCurrenTime;
+}
+
+void Bus::setBusCurrenTime(int busCurrenTime) {
+    Bus::busCurrenTime = busCurrenTime;
 }
 
